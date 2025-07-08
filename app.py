@@ -71,13 +71,13 @@ def index():
 @app.route('/reset_one', methods=['POST'])
 def reset_one():
     session.pop('outlook_file', None)
-    return redirect(url_for('upload_page'))
+    return redirect(url_for('/'))
 
 @app.route('/reset_all', methods=['POST'])
 def reset_all():
     session.pop('exclusions_file', None)
     session.pop('outlook_file', None)
-    return redirect(url_for('upload_page'))
+    return redirect(url_for('/'))
 
 if __name__ == "__main__":
     app.run()
