@@ -71,13 +71,16 @@ def index():
 @app.route('/reset_one', methods=['POST'])
 def reset_one():
     session.pop('outlook_file', None)
-    return redirect(request.url)
+    return redirect(url_for('upload_page'))
 
 @app.route('/reset_all', methods=['POST'])
 def reset_all():
     session.pop('exclusions_file', None)
     session.pop('outlook_file', None)
-    return redirect(request.url)
+    return redirect(url_for('upload_page'))
 
 if __name__ == "__main__":
     app.run()
+
+print("Registered routes:")
+print(app.url_map)
