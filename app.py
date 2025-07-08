@@ -61,7 +61,7 @@ def index():
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("results.html", matches=matches, content=content)
+        return render_template("results.html", matches=matches, content=content, exclusions=exclusions)
 
     return render_template("index.html")
 
