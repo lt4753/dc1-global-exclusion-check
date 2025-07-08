@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Results</title></head>
+<body>
+  <h1>Match Results</h1>
+  {% if matches %}
+    <p>Potential matches found:</p>
+    <ul>{% for match in matches %}<li>{{ match }}</li>{% endfor %}</ul>
+  {% else %}
+    <p>No matches found.</p>
+  {% endif %}
+  <hr>
+  <h2>File Content:</h2>
+  <pre>{{ content }}</pre>
+</body>
+</html>

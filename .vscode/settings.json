@@ -1,0 +1,11 @@
+{
+    "azureFunctions.deploySubpath": ".",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.pythonVenv": ".venv",
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.projectLanguageModel": 2,
+    "appService.defaultWebAppToDeploy": "/subscriptions/d76885e4-3cdd-4c0d-99d7-2816c51cf138/resourceGroups/appsvc_linux_eastus2/providers/Microsoft.Web/sites/dc1-global-exclusions-check",
+    "appService.deploySubpath": "."
+}
