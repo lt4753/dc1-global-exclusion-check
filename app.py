@@ -68,12 +68,12 @@ def index():
 
     return render_template("index.html")
 
-@app.route('/reset_one', methods=['POST'])
+@app.route('/', methods=['POST'])
 def reset_one():
     session.pop('outlook_file', None)
     return redirect(url_for('upload_page'))
 
-@app.route('/reset_all', methods=['POST'])
+@app.route('/', methods=['POST'])
 def reset_all():
     session.pop('exclusions_file', None)
     session.pop('outlook_file', None)
