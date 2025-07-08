@@ -10,8 +10,8 @@
 </head>
 <body>
   <h1>Upload Files:</h1>
-  <h3>| Export Exclusions.csv from client site:  <i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3>
-  <h3>| Outlook file to be shared from client in .ics (event) or .eml (email) format</h3><hr><br>
+  <h3>| Export Exclusions.csv from client site:  <i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3><br>
+  <h3>| Outlook file to be shared from client in .ics (event) or .eml (email) format</h3><br><hr><br>
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul>{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
