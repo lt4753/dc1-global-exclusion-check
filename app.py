@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from flask import Flask, request, render_template, redirect, url_for, flash, session
 import csv
 import re
 import os
@@ -53,6 +53,9 @@ def index():
         exclusion_file.save(excl_path)
         outlook_file.save(outlook_path)
 
+        session['exclusion_file'] = exclusion_file.filename
+        session['outlook_file'] = outlook_file.filename
+
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
 
@@ -64,6 +67,17 @@ def index():
         return render_template("results.html", matches=matches, content=content)
 
     return render_template("index.html")
+
+@app.route('/reset_one', methods=['POST'])
+def reset_one():
+    session.pop('outlook_file', None)
+    return redirect(url_for('upload_page'))
+
+@app.route('/reset_all', methods=['POST'])
+def reset_all():
+    session.pop('exclusions_file', None)
+    session.pop('outlook_file', None)
+    return redirect(url_for('upload_page'))
 
 if __name__ == "__main__":
     app.run()

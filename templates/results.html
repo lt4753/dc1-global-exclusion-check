@@ -3,6 +3,14 @@
 <head><title>Results</title></head>
 <body>
   <h1>Match Results</h1>
+  <h3>NOTE - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
+  <h4>This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h4>
+  <form action="{{ url_for('reset_one') }}" method="post" style="display:inline;">
+    <button type="submit">Keep Exclusion file and run again</button>
+  </form>
+  <form action="{{ url_for('reset_all') }}" method="post" style="display:inline;">
+    <button type="submit">Reset Both Files</button>
+  </form>
   {% if matches %}
     <p>Potential matches found:</p>
     <ul>{% for match in matches %}<li>{{ match }}</li>{% endfor %}</ul>
