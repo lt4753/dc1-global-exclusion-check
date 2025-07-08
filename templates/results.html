@@ -22,7 +22,9 @@
   <hr><br>
   <details><summary><b>Exclusion List:</b></summary>
   <pre>
-    {{ exclusion_list }}
+    {% for exclusion in exclusions %}
+    {{ exclusion }}
+    {% endfor %}
   </pre>
   </details>
   <br>

@@ -39,7 +39,6 @@ def find_matches(content, exclusion_list):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    exclusion_list = []
     if request.method == "POST":
         exclusion_file = request.files["exclusions"]
         outlook_file = request.files["outlook"]
@@ -57,15 +56,12 @@ def index():
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
 
-        for exclusion in exclusions:
-            exclusion_list.append(exclusion)
-
         if error1 or error2:
             flash(error1 or error2)
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("results.html", matches=matches, content=content, exclusion_list=exclusion_list)
+        return render_template("results.html", matches=matches, content=content, exclusions=exclusions)
 
     return render_template("index.html")
 
