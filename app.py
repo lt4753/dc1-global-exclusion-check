@@ -76,22 +76,13 @@ def index():
 @app.route("/restart_preserve")
 def restart_preserve():
     # Only delete outlook file
-    outlook_file = session.pop("outlook_file", None)
-    if outlook_file:
-        outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], outlook_file)
-        if os.path.exists(outlook_path):
-            os.remove(outlook_path)
+    session.pop("outlook_file", None)
     return redirect(url_for("index"))
 
 @app.route("/restart_clear")
 def restart_clear():
-    # Delete both files
-    for file_key in ["exclusion_file", "outlook_file"]:
-        filename = session.pop(file_key, None)
-        if filename:
-            file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-            if os.path.exists(file_path):
-                os.remove(file_path)
+    session.pop("outlook_file", None)
+    session.pop("exclusion_file", None)
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
