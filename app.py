@@ -108,16 +108,33 @@ def index():
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("index.html", matches=matches, content=content, exclusions=exclusions)
+        return render_template("results.html", matches=matches, content=content, exclusions=exclusions)
 
 
     return render_template("index.html")
 
-# @app.route("/restart_preserve")
-# def restart_preserve():
-#     # Only delete outlook file
-#     session.pop("outlook_file", None)
-#     return redirect(url_for("index"))
+
+@app.route("/keep_exclusions")
+def restart_preserve():
+    if request.method == "POST":
+        outlook_file = request.files.get("outlook")
+        exclusion_file = request.files.get("exclusions")
+
+    # Use previously uploaded exclusion file if not re-uploaded
+        if exclusion_file and exclusion_file.filename:
+            excl_filename = secure_filename(exclusion_file.filename)
+            excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
+            exclusion_file.save(excl_path)
+            session["exclusion_file"] = excl_filename
+        elif "exclusion_file" in session:
+            excl_filename = session["exclusion_file"]
+            excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
+        else:
+            flash("Exclusion file is missing.")
+            return redirect(request.url)
+    # Only delete outlook file
+    session.pop("outlook_file", None)
+    return redirect(url_for("keep_exclusions"))
 
 # @app.route("/restart_clear")
 # def restart_clear():
