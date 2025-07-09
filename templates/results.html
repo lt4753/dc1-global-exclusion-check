@@ -45,7 +45,19 @@
     <p>No matches found.</p>
   {% endif %}
 
-  <hr><br>
+  <hr>
+
+  <div style="margin-top: 20px;">
+    <form action="{{ url_for('restart_preserve') }}" method="get" style="display: inline;">
+      <button type="submit">Back to Home (Preserve Exclusion File)</button>
+    </form>
+
+    <form action="{{ url_for('restart_clear') }}" method="get" style="display: inline; margin-left: 10px;">
+      <button type="submit">Back to Home (Clear All)</button>
+    </form>
+  </div>
+
+  <br>
 
   <div class="side-by-side">
     <!-- LEFT SIDE: Exclusion List -->

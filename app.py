@@ -50,11 +50,16 @@ def index():
             flash("Both files are required.")
             return redirect(request.url)
 
-        excl_path = os.path.join(app.config["UPLOAD_FOLDER"], secure_filename(exclusion_file.filename))
-        outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], secure_filename(outlook_file.filename))
+        excl_filename = secure_filename(exclusion_file.filename)
+        outlook_filename = secure_filename(outlook_file.filename)
+        excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
+        outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], outlook_filename)
 
         exclusion_file.save(excl_path)
         outlook_file.save(outlook_path)
+
+        session["exclusion_file"] = excl_filename
+        session["outlook_file"] = outlook_filename
 
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
@@ -68,7 +73,27 @@ def index():
 
     return render_template("index.html")
 
+@app.route("/restart_preserve")
+def restart_preserve():
+    # Only delete outlook file
+    outlook_file = session.pop("outlook_file", None)
+    if outlook_file:
+        outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], outlook_file)
+        if os.path.exists(outlook_path):
+            os.remove(outlook_path)
+    return redirect(url_for("index"))
+
+@app.route("/restart_clear")
+def restart_clear():
+    # Delete both files
+    for file_key in ["exclusion_file", "outlook_file"]:
+        filename = session.pop(file_key, None)
+        if filename:
+            file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            if os.path.exists(file_path):
+                os.remove(file_path)
+    return redirect(url_for("index"))
+
 if __name__ == "__main__":
     app.run()
 
-    
