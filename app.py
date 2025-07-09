@@ -113,17 +113,17 @@ def index():
 
     return render_template("index.html")
 
-@app.route("/restart_preserve")
-def restart_preserve():
-    # Only delete outlook file
-    session.pop("outlook_file", None)
-    return redirect(url_for("index"))
+# @app.route("/restart_preserve")
+# def restart_preserve():
+#     # Only delete outlook file
+#     session.pop("outlook_file", None)
+#     return redirect(url_for("index"))
 
-@app.route("/restart_clear")
-def restart_clear():
-    session.pop("outlook_file", None)
-    session.pop("exclusion_file", None)
-    return redirect(url_for("index"))
+# @app.route("/restart_clear")
+# def restart_clear():
+#     session.pop("outlook_file", None)
+#     session.pop("exclusion_file", None)
+#     return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.run()
