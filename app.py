@@ -6,7 +6,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash, ses
 import csv
 import re
 import os
-import pandas as pd
+# import pandas as pd
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -31,7 +31,9 @@ def get_exclusions_from_file(input_exclusion_file, column_name):
 # NEW
 def full_exclusion_file(input_exclusion_file):
     with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
-        return csv.DictReader(full_exclusions_csv)
+        reader = csv.DictReader(full_exclusions_csv)
+        rows = list(reader)
+        return rows
 
 def get_outlook_file(outlook_filename):
     try:
