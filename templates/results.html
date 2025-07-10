@@ -65,7 +65,7 @@
             <tbody>
               {% for row in full_csv_output %}
               <tr>
-                {% for value in full_csv_output.values() %}
+                {% for value in row.values() %}
                   <td>{{ value }}</td>
                 {% endfor %}
               </tr>
