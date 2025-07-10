@@ -23,6 +23,12 @@ def get_exclusions_from_file(input_exclusion_file, column_name):
         return [], f"Error reading exclusion file: {e}"
     return exclusion_list, None
 
+def full_exclusion_file(input_exclusion_file):
+    with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
+        reader = csv.DictReader(full_exclusions_csv)
+        rows = list(reader)
+        return rows
+
 def get_outlook_file(outlook_filename):
     try:
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
@@ -55,13 +61,14 @@ def index():
 
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
+        full_csv_output = full_exclusion_file(excl_path)
 
         if error1 or error2:
             flash(error1 or error2)
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("results.html", matches=matches, content=content, exclusions=exclusions)
+        return render_template("results.html", matches=matches, content=content, exclusions=exclusions, full_csv_output=full_csv_output)
 
     return render_template("index.html")
 
