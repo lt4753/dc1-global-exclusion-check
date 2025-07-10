@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Results</title>
+  <title>Results - Dev</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,10 +25,24 @@
       white-space: pre-wrap;
       word-break: break-word;
     }
+      table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  thead {
+    background-color: #eee;
+  }
   </style>
 </head>
 <body>
-  <h1>Match Results</h1>
+  <h1>Match Results:</h1>
   <h3 style="color: red;">NOTE - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
   <h3 style="color: red;">This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
   <hr>
@@ -52,9 +66,28 @@
       <details open>
         <summary><b>Exclusion List:</b></summary>
         <pre>
-{% for exclusion in exclusions %}
+          <!-- NEW -->
+          <table border="1">
+            <thead>
+              <tr>
+                {% for key in full_csv_output[0].keys() %}
+                  <th>{{ key }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in full_csv_output %}
+              <tr>
+                {% for value in row.values() %}
+                  <td>{{ value }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+<!-- {% for exclusion in exclusions %}
 {{ exclusion }}
-{% endfor %}
+{% endfor %} -->
         </pre>
       </details>
     </div>
