@@ -53,9 +53,11 @@
       <details open>
         <summary><b>Exclusion List:</b></summary>
         <pre>
-{% for exclusion in exclusions %}
+          <!-- NEW -->
+          {{ full_csv_output }}
+<!-- {% for exclusion in exclusions %}
 {{ exclusion }}
-{% endfor %}
+{% endfor %} -->
         </pre>
       </details>
     </div>
