@@ -68,7 +68,6 @@ def index():
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
         # NEW
-        # full_csv_output = full_exclusion_file(excl_path)
         full_csv_output = full_exclusion_file(excl_path)
 
         if error1 or error2:

@@ -54,7 +54,24 @@
         <summary><b>Exclusion List:</b></summary>
         <pre>
           <!-- NEW -->
-          {{ full_csv_output }}
+          <table border="1">
+            <thead>
+              <tr>
+                {% for key in full_csv_output[0].keys() %}
+                  <th>{{ key }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in rows %}
+              <tr>
+                {% for value in full_csv_output.values() %}
+                  <td>{{ value }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 <!-- {% for exclusion in exclusions %}
 {{ exclusion }}
 {% endfor %} -->
