@@ -67,7 +67,7 @@ def index():
         content, error2 = get_outlook_file(outlook_path)
         # NEW
         # full_csv_output = full_exclusion_file(excl_path)
-        full_csv_output = pd.DataFrame(full_exclusion_file(excl_path))
+        full_csv_output = full_exclusion_file(excl_path).items
 
         if error1 or error2:
             flash(error1 or error2)
