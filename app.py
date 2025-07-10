@@ -6,7 +6,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash, ses
 import csv
 import re
 import os
-import pandas as pd
+# import pandas as pd
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -66,7 +66,8 @@ def index():
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
         # NEW
-        full_csv_output = pd.DataFrame(full_exclusion_file(excl_path))
+        # NOT WORKING? full_csv_output = pd.DataFrame(full_exclusion_file(excl_path))
+        full_csv_output = full_exclusion_file(excl_path)
 
         if error1 or error2:
             flash(error1 or error2)
