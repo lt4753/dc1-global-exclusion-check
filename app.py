@@ -1,5 +1,6 @@
-# THIS IS THE DEV SCRIPT
-# THIS IS THE DEV SCRIPT
+# DEV DEV DEV DEV DEV
+# DEV DEV DEV DEV DEV
+# DEV DEV DEV DEV DEV
 
 from flask import Flask, request, render_template, redirect, url_for, flash, session
 import csv
@@ -42,63 +43,19 @@ def find_matches(content, exclusion_list):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    # if request.method == "POST":
-    #     exclusion_file = request.files["exclusions"]
-    #     outlook_file = request.files["outlook"]
-
-    #     if not exclusion_file or not outlook_file:
-    #         flash("Both files are required.")
-    #         return redirect(request.url)
-
-    #     excl_filename = secure_filename(exclusion_file.filename)
-    #     outlook_filename = secure_filename(outlook_file.filename)
-    #     excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
-    #     outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], outlook_filename)
-
-    #     exclusion_file.save(excl_path)
-    #     outlook_file.save(outlook_path)
-
-    #     session["exclusion_file"] = excl_filename
-    #     session["outlook_file"] = outlook_filename
-
-    #     exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
-    #     content, error2 = get_outlook_file(outlook_path)
-
-    #     if error1 or error2:
-    #         flash(error1 or error2)
-    #         return redirect(request.url)
-
-    #     matches = find_matches(content, exclusions)
-    #     return render_template("results.html", matches=matches, content=content, exclusions=exclusions)
-
-    # return render_template("index.html")
-
     if request.method == "POST":
-        outlook_file = request.files.get("outlook")
-        exclusion_file = request.files.get("exclusions")
+        exclusion_file = request.files["exclusions"]
+        outlook_file = request.files["outlook"]
 
-    # Use previously uploaded exclusion file if not re-uploaded
-        if exclusion_file and exclusion_file.filename:
-            excl_filename = secure_filename(exclusion_file.filename)
-            excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
-            exclusion_file.save(excl_path)
-            session["exclusion_file"] = excl_filename
-        elif "exclusion_file" in session:
-            excl_filename = session["exclusion_file"]
-            excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
-        else:
-            flash("Exclusion file is missing.")
+        if not exclusion_file or not outlook_file:
+            flash("Both files are required.")
             return redirect(request.url)
 
-    # Save new Outlook file
-        if not outlook_file:
-            flash("Outlook file is missing.")
-            return redirect(request.url)
+        excl_path = os.path.join(app.config["UPLOAD_FOLDER"], secure_filename(exclusion_file.filename))
+        outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], secure_filename(outlook_file.filename))
 
-        outlook_filename = secure_filename(outlook_file.filename)
-        outlook_path = os.path.join(app.config["UPLOAD_FOLDER"], outlook_filename)
+        exclusion_file.save(excl_path)
         outlook_file.save(outlook_path)
-        session["outlook_file"] = outlook_filename
 
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
@@ -110,38 +67,7 @@ def index():
         matches = find_matches(content, exclusions)
         return render_template("results.html", matches=matches, content=content, exclusions=exclusions)
 
-
     return render_template("index.html")
-
-
-@app.route("/keep_exclusions")
-def restart_preserve():
-    if request.method == "POST":
-        outlook_file = request.files.get("outlook")
-        exclusion_file = request.files.get("exclusions")
-
-    # Use previously uploaded exclusion file if not re-uploaded
-        if exclusion_file and exclusion_file.filename:
-            excl_filename = secure_filename(exclusion_file.filename)
-            excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
-            exclusion_file.save(excl_path)
-            session["exclusion_file"] = excl_filename
-        elif "exclusion_file" in session:
-            excl_filename = session["exclusion_file"]
-            excl_path = os.path.join(app.config["UPLOAD_FOLDER"], excl_filename)
-        else:
-            flash("Exclusion file is missing.")
-            return redirect(request.url)
-    # Only delete outlook file
-    session.pop("outlook_file", None)
-    return redirect(url_for("keep_exclusions"))
-
-# @app.route("/restart_clear")
-# def restart_clear():
-#     session.pop("outlook_file", None)
-#     session.pop("exclusion_file", None)
-#     return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.run()
-

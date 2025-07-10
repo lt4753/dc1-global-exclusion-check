@@ -29,7 +29,7 @@
 </head>
 <body>
   <h1 style="color: red;">DEV</h1>
-  <h1>Match Results</h1>
+  <h1>Match Results:</h1>
   <h3 style="color: red;">NOTE - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
   <h3 style="color: red;">This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
   <hr>
@@ -45,19 +45,7 @@
     <p>No matches found.</p>
   {% endif %}
 
-  <hr>
-
-  <div style="margin-top: 20px;">
-    <form action="{{ url_for('keep_exclusions') }}" method="get" style="display: inline;">
-      <button type="submit">Back to Home (Preserve Exclusion File)</button>
-    </form>
-
-    <form action="{{ url_for('restart_clear') }}" method="get" style="display: inline; margin-left: 10px;">
-      <button type="submit">Back to Home (Clear All)</button>
-    </form>
-  </div>
-
-  <br>
+  <hr><br>
 
   <div class="side-by-side">
     <!-- LEFT SIDE: Exclusion List -->
@@ -85,4 +73,3 @@
 
 </body>
 </html>
-

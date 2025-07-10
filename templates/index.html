@@ -6,33 +6,11 @@
         body {
           font-family: Arial, sans-serif;
         }
-            body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    .side-by-side {
-      display: flex;
-      gap: 30px;
-    }
-
-    .left, .right {
-      flex: 1;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
   </style>
 </head>
 <body>
   <h1 style="color: red;">DEV</h1>
-  <h1>Upload Files:</h1>
+  <h1 >Upload Files:</h1>
   <h3>| Export Exclusions.csv from client site:  <i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3><br>
   <h3>| Outlook file to be shared from client in .ics (event) or .eml (email) format</h3><br><hr><br>
   {% with messages = get_flashed_messages() %}
@@ -45,52 +23,5 @@
     <label>Outlook File: <input type="file" name="outlook" required></label><br><br><br>
     <input type="submit" value="Check for Global Exclusions">
   </form>
-  <!-- testing here -->
-
-  <h1>Match Results:</h1>
-  <h3 style="color: red;">NOTE - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
-  <h3 style="color: red;">This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
-  <hr>
-  <hr>
-
-  {% if matches %}
-    <h3>Potential matches found:</h3>
-    <ul>
-      {% for match in matches %}
-        <li>{{ match }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No matches found.</p>
-  {% endif %}
-
-  <hr>
-  <hr>
-    <br>
-
-  <div class="side-by-side">
-    <!-- LEFT SIDE: Exclusion List -->
-    <div class="left">
-      <details open>
-        <summary><b>Exclusion List:</b></summary>
-        <pre>
-{% for exclusion in exclusions %}
-{{ exclusion }}
-{% endfor %}
-        </pre>
-      </details>
-    </div>
-
-    <!-- RIGHT SIDE: Outlook Content -->
-    <div class="right">
-      <details open>
-        <summary><b>Outlook File Content:</b></summary>
-        <pre>
-{{ content }}
-        </pre>
-      </details>
-    </div>
-  </div>
 </body>
 </html>
-
