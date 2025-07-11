@@ -48,7 +48,7 @@ def get_outlook_file_lines(outlook_filename):  #---------------------- TEST
         reader = outlook_file.readlines()
         for att in reader:
             if 'ATTENDEE;' in att:
-                attend.append(att.split(":")[-1])
+                attend.append("Attendee: " + str(att.split(":")[-1]))
     return attend
 
 
