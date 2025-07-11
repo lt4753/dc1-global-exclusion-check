@@ -44,7 +44,7 @@ def full_exclusion_file(input_exclusion_file):
 def get_outlook_file(outlook_filename): #------------------- CHANGED TO readlines() - was read()
     try:
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
-            return outlook_file.readlines(), None
+            return outlook_file.read(), None
     except Exception as e:
         return None, f"Error reading Outlook file: {e}"
 
