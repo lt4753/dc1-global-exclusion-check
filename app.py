@@ -28,7 +28,6 @@ def get_exclusions_from_file(input_exclusion_file, column_name):
         return [], f"Error reading exclusion file: {e}"
     return exclusion_list, None
 
-# NEW
 def full_exclusion_file(input_exclusion_file):
     with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
         reader = csv.DictReader(full_exclusions_csv)
@@ -42,15 +41,42 @@ def get_outlook_file(outlook_filename):
     except Exception as e:
         return None, f"Error reading Outlook file: {e}"
 
-def get_outlook_file_lines(outlook_filename):  #---------------------- TEST
-    attend = []
-    with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
-        reader = outlook_file.readlines()
-        for att in reader:
-            if 'ATTENDEE;' in att:
-                attend.append("Attendee: " + str(att.split(":")[-1]))
-    return attend
+def get_ics_file_lines(outlook_filename):
+    additional_ics_info = []
+    if outlook_filename.endswith('.ics'):
+        with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+            reader = outlook_file.readlines()
+            for line in range(len(reader)):
+                if reader[line].startswith('ATTENDEE;'):
+                    additional_ics_info.append("Attendee: " + str(reader[line].split('mailto:')[-1]).strip())
+                if reader[line].startswith('UID:'):
+                    uid1 = reader[line].strip()
+                    uid2 = reader[line + 1].strip()
+                    uid = uid1 + uid2
+                    additional_ics_info.append(uid.replace(':', ': '))
+                if reader[line].startswith('ORGANIZER;'):
+                    additional_ics_info.append("Organizer: " + str(reader[line].split('mailto:')[-1]).strip())
+            return sorted(additional_ics_info, reverse=True)
+    return []
 
+def get_eml_file_lines(outlook_filename):
+    additional_eml_info = []
+    if outlook_filename.endswith('.eml'):
+        with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+            reader = outlook_file.readlines()
+            for line in range(len(reader)):
+                if reader[line].startswith('From:'):
+                    additional_eml_info.append("Sender: " + str(reader[line].split('<')[-1].replace('>', '').strip()))
+            for line in range(len(reader)):
+                if reader[line].startswith('Message-ID:'):
+                    mid1 = reader[line]
+                    mid2 = reader[line + 1].replace('<', '')
+                    mid = mid1 + mid2
+                    additional_eml_info.append(mid.replace('>', '').strip())
+            return additional_eml_info
+    return []
+                
+            
 
 def find_matches(content, exclusion_list):
     matches = []
@@ -78,14 +104,15 @@ def index():
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
         full_csv_output = full_exclusion_file(excl_path)
-        lines_from_ofile = get_outlook_file_lines(outlook_path) #---------------- TEST
+        lines_from_ics = get_ics_file_lines(outlook_path)
+        lines_from_eml = get_eml_file_lines(outlook_path)
 
         if error1 or error2:
             flash(error1 or error2)
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("results.html", matches=matches, content=content, exclusions=exclusions, full_csv_output=full_csv_output, lines_from_ofile=lines_from_ofile) 
+        return render_template("results.html", matches=matches, content=content, exclusions=exclusions, full_csv_output=full_csv_output, lines_from_ics=lines_from_ics, lines_from_eml=lines_from_eml) 
 
     return render_template("index.html")
 

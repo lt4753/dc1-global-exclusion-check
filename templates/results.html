@@ -60,9 +60,12 @@
   {% endif %}
 
   <hr>
-  <br><h3>Additional Info:</h3><br>
-    {% for attend in lines_from_ofile%}
-    <p>{{ attend }}</p>
+  <br><h3>Additional Info:</h3>
+    {% for additional_ics_info in lines_from_ics%}
+    <p>{{ additional_ics_info }}</p>
+    {% endfor %}
+    {% for additional_eml_info in lines_from_eml%}
+    <p>{{ additional_eml_info }}</p>
     {% endfor %}
   <br><hr><br>
 
