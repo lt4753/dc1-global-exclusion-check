@@ -35,18 +35,21 @@ def full_exclusion_file(input_exclusion_file):
         rows = list(reader)
         return rows
 
-# def get_outlook_file(outlook_filename):
-#     try:
-#         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
-#             return outlook_file.read(), None
-#     except Exception as e:
-#         return None, f"Error reading Outlook file: {e}"
-def get_outlook_file(outlook_filename): #------------------- CHANGED TO readlines() - was read()
+def get_outlook_file(outlook_filename):
     try:
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
             return outlook_file.read(), None
     except Exception as e:
         return None, f"Error reading Outlook file: {e}"
+
+def get_outlook_file_lines(outlook_filename):  #---------------------- TEST
+    attend = []
+    with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+        reader = outlook_file.readlines()
+        for att in reader:
+            if 'ATTENDEE;' in att:
+                attend.append(att)
+    return attend
 
 def find_matches(content, exclusion_list):
     matches = []
@@ -74,19 +77,14 @@ def index():
         exclusions, error1 = get_exclusions_from_file(excl_path, "Value")
         content, error2 = get_outlook_file(outlook_path)
         full_csv_output = full_exclusion_file(excl_path)
-
-        # attendees = [] ----------------------- WORKING ON THIS
-
-        # for attendee in content:
-        #     if 'ATTENDEE;' in attendee:
-        #         attendees.append(attendee)
+        lines_from_ofile = get_outlook_file_lines(outlook_path) #---------------- TEST
 
         if error1 or error2:
             flash(error1 or error2)
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("results.html", matches=matches, content=content, exclusions=exclusions, full_csv_output=full_csv_output) 
+        return render_template("results.html", matches=matches, content=content, exclusions=exclusions, full_csv_output=full_csv_output, lines_from_ofile=lines_from_ofile) 
 
     return render_template("index.html")
 

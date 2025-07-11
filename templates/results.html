@@ -56,15 +56,15 @@
       {% endfor %}
     </ul>
   {% else %}
-    <p>No matches found.</p>
+    <h3>No matches found.</h3>
   {% endif %}
 
-  <hr><br>
-    <!-- <h3>Additional Info:</h3> ---------- WORKING ON THIS
-    {% for attend in attendees}
-      <p>{{ attendees }}</p>
+  <hr>
+  <h3>Additional Info:</h3>
+    {% for attend in lines_from_ofile%}
+    <p>{{ attend }}</p>
     {% endfor %}
-  <hr><br> -->
+  <hr><br>
 
   <div class="side-by-side">
     <!-- LEFT SIDE: Exclusion List -->
