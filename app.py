@@ -1,12 +1,9 @@
 # DEV DEV DEV DEV DEV
-# DEV DEV DEV DEV DEV
-# DEV DEV DEV DEV DEVdev
 
 from flask import Flask, request, render_template, redirect, url_for, flash, session
 import csv
 import re
 import os
-# import pandas as pd
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -67,7 +64,6 @@ def get_eml_file_lines(outlook_filename):
             for line in range(len(reader)):
                 if reader[line].startswith('From:'):
                     additional_eml_info.append("Sender: " + str(reader[line].split('<')[-1].replace('>', '').strip()))
-            for line in range(len(reader)):
                 if reader[line].startswith('Message-ID:'):
                     mid1 = reader[line]
                     mid2 = reader[line + 1].replace('<', '')
