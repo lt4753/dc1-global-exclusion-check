@@ -65,11 +65,46 @@ def get_eml_file_lines(outlook_filename):
                 if reader[line].startswith('From:'):
                     additional_eml_info.append("Sender: " + str(reader[line].split('<')[-1].replace('>', '').strip()))
                 if reader[line].startswith('Message-ID:'):
-                    mid1 = reader[line]
-                    mid2 = reader[line + 1].replace('<', '')
-                    mid = mid1 + mid2
-                    additional_eml_info.append(mid.replace('>', '').strip())
-                # NEED TO BUILD LOGIC FOR TO: 
+                    message_id1 = reader[line].replace(': <', ': ')
+                    message_id2 = ''
+                    message_id = ''
+                    if reader[line + 1].startswith(' '):
+                        message_id2 = reader[line + 1].replace('<', '')
+                        message_id = message_id1 + message_id2
+                        additional_eml_info.append(message_id.replace('>', '').strip())
+                    additional_eml_info.append(message_id1.replace('>', '').strip())
+                # NEED TO SOLVE LOGIC FOR EXTAR LINES PAST THE FIRST TWO
+                # NEED TO SOLVE FOR EXTRA POSSIBLE EXTAR SPACE IN TO HEADER SPANNING TWO LINES
+                if reader[line].startswith('To:'):
+                    eml_to_single_line = re.split('[<|>]', reader[line])
+                    eml_to = reader[line]
+                    if reader[line + 1].startswith(' '):
+                        eml_to_next_line = reader[line + 1]
+                        eml_to += eml_to_next_line
+                        clean_eml_to_multiline = re.split('[<|>]', eml_to)
+                        for recipient in clean_eml_to_multiline:
+                            if '@' in recipient:
+                                additional_eml_info.append(f'To: {recipient}'.strip(' '))
+                    else:
+                        for recipient in eml_to_single_line:
+                            if '@' in recipient:
+                                additional_eml_info.append(f'To: {recipient}'.strip('>'))
+                # ADDING LOGIC FOR CC
+                # WILL NEED TO APPLY 3+ LINE LOGIC TO THIS SECTION
+                if reader[line].startswith('Cc:'):
+                    eml_cc_single_line = re.split('[<|>]', reader[line])
+                    eml_cc = reader[line]
+                    if reader[line + 1].startswith(' '):
+                        eml_cc_next_line = reader[line + 1]
+                        eml_cc += eml_to_next_line
+                        clean_eml_cc_multiline = re.split('[<|>]', eml_cc)
+                        for recipient in clean_eml_cc_multiline:
+                            if '@' in recipient:
+                                additional_eml_info.append(f'Cc: {recipient}'.strip(' '))
+                    else:
+                        for recipient in eml_cc_single_line:
+                            if '@' in recipient:
+                                additional_eml_info.append(f'Cc: {recipient}'.strip('>'))
             return additional_eml_info
     return []
                 
