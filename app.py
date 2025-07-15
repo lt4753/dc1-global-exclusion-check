@@ -69,6 +69,7 @@ def get_eml_file_lines(outlook_filename):
                     mid2 = reader[line + 1].replace('<', '')
                     mid = mid1 + mid2
                     additional_eml_info.append(mid.replace('>', '').strip())
+                # NEED TO BUILD LOGIC FOR TO: 
             return additional_eml_info
     return []
                 
