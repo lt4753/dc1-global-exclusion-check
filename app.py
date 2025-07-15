@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash, ses
 import csv
 import re
 import os
+import json
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -109,8 +110,29 @@ def get_eml_file_lines(outlook_filename):
                                 additional_eml_info.append(f'Cc: {recipient}'.strip('>'))
             return additional_eml_info
     return []
-                
-            
+
+# ADDED SECTION FOR JSON (GRAPH EXPLORER FILE)  
+# NEED TO WORK ON LOGIC FOR PULLING KEY/VALUES FROM .JSON MORE EFFICIENTLY THAN READING EACH LINE              
+def get_json_file_lines(outlook_filename):
+    additional_json_info = []
+    if outlook_filename.endswith('.json'):
+        with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+        # with open('to.json', 'r', encoding='utf-8', errors='ignore') as outlook_file:
+            raw_json = outlook_file.read()
+            cleaned_json = re.sub(r'"body"\s*:\s*\{.*?\},?', '', raw_json, flags=re.DOTALL)
+            data = json.loads(cleaned_json)
+            messages = data.get("value", [])
+            ids = []
+            senders = []
+            for msg in messages:
+                ids.append(f"ID: {msg.get('id')}")
+                senders.append(f"Sender: {msg.get('sender')}")
+            for unique_ids in set(ids):
+                additional_json_info.append(unique_ids)
+            for unique_senders in set(senders):
+                additional_json_info.append('Sender: ' + unique_senders.split(': ')[-1].strip('}}'))
+            return sorted(additional_json_info, reverse=True)
+    return []            
 
 def find_matches(content, exclusion_list):
     matches = []
@@ -140,13 +162,22 @@ def index():
         full_csv_output = full_exclusion_file(excl_path)
         lines_from_ics = get_ics_file_lines(outlook_path)
         lines_from_eml = get_eml_file_lines(outlook_path)
+        lines_from_json = get_json_file_lines(outlook_path)
 
         if error1 or error2:
             flash(error1 or error2)
             return redirect(request.url)
 
         matches = find_matches(content, exclusions)
-        return render_template("results.html", matches=matches, content=content, exclusions=exclusions, full_csv_output=full_csv_output, lines_from_ics=lines_from_ics, lines_from_eml=lines_from_eml) 
+        return render_template("results.html", 
+                               matches=matches, 
+                               content=content, 
+                               exclusions=exclusions, 
+                               full_csv_output=full_csv_output, 
+                               lines_from_ics=lines_from_ics, 
+                               lines_from_eml=lines_from_eml,
+                               lines_from_json = lines_from_json
+                               ) 
 
     return render_template("index.html")
 
