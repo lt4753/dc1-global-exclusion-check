@@ -44,13 +44,15 @@ def get_ics_file_lines(outlook_filename):
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
             reader = outlook_file.readlines()
             for line in range(len(reader)):
+                # NEED TO ADJUST LOGIC FOR ATTENDEES SPANNING TO A SECOND LINE
                 if reader[line].startswith('ATTENDEE;'):
                     additional_ics_info.append("Attendee: " + str(reader[line].split('mailto:')[-1]).strip())
                 if reader[line].startswith('UID:'):
-                    uid1 = reader[line].strip()
-                    uid2 = reader[line + 1].strip()
-                    uid = uid1 + uid2
-                    additional_ics_info.append(uid.replace(':', ': '))
+                    uid_single_line = reader[line]
+                    if reader[line + 1].startswith(' '):
+                        uid_multi_line = reader[line].strip() + reader[line + 1].lstrip()
+                        additional_ics_info.append(uid_multi_line.replace('UID:', 'UID: '))
+                    else: additional_ics_info.append(uid_single_line.replace('UID:', 'UID: '))
                 if reader[line].startswith('ORGANIZER;'):
                     additional_ics_info.append("Organizer: " + str(reader[line].split('mailto:')[-1]).strip())
             return sorted(additional_ics_info, reverse=True)
