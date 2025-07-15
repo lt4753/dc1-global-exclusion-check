@@ -111,8 +111,7 @@ def get_eml_file_lines(outlook_filename):
             return additional_eml_info
     return []
 
-# ADDED SECTION FOR JSON (GRAPH EXPLORER FILE)  
-# NEED TO WORK ON LOGIC FOR PULLING KEY/VALUES FROM .JSON MORE EFFICIENTLY THAN READING EACH LINE              
+# ADDED SECTION FOR JSON (GRAPH EXPLORER FILE)                
 def get_json_file_lines(outlook_filename):
     additional_json_info = []
     if outlook_filename.endswith('.json'):
@@ -124,13 +123,19 @@ def get_json_file_lines(outlook_filename):
             messages = data.get("value", [])
             ids = []
             senders = []
+            # recipients = []
+            # cced = []
+            subjects = []
             for msg in messages:
                 ids.append(f"ID: {msg.get('id')}")
                 senders.append(f"Sender: {msg.get('sender')}")
+                subjects.append(f"Subject: {msg.get('subject')}")
             for unique_ids in set(ids):
                 additional_json_info.append(unique_ids)
             for unique_senders in set(senders):
                 additional_json_info.append('Sender: ' + unique_senders.split(': ')[-1].strip('}}'))
+            for unique_subjects in set(subjects):
+                additional_json_info.append(str(unique_subjects)) 
             return sorted(additional_json_info, reverse=True)
     return []            
 
