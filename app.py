@@ -1,4 +1,4 @@
-# DEV DEV DEV DEV DEV
+# DEV DEV DEV DEV DEV DEV
 
 from flask import Flask, request, render_template, redirect, url_for, flash, session
 import csv
@@ -161,6 +161,7 @@ def get_json_file_lines(outlook_filename):
                     "\nSender: " + sender_address +
                     "\nRecipients: " + str(to_addresses).lstrip('[').strip(']') +
                     "\nCc'ed: " + str(cc_addresses).lstrip('[').strip(']') +
+                    "\n" +
                     "\n"
                     )
             return additional_json_info
