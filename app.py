@@ -111,33 +111,60 @@ def get_eml_file_lines(outlook_filename):
             return additional_eml_info
     return []
 
-# ADDED SECTION FOR JSON (GRAPH EXPLORER FILE)                
+# ADDED SECTION FOR JSON (GRAPH EXPLORER FILE)    
+# OLD OLD OLD OLD OLD            
+# def get_json_file_lines(outlook_filename):
+#     additional_json_info = []
+#     if outlook_filename.endswith('.json'):
+#         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+#             raw_json = outlook_file.read()
+#             cleaned_json = re.sub(r'"body"\s*:\s*\{.*?\},?', '', raw_json, flags=re.DOTALL)
+#             data = json.loads(cleaned_json)
+#             messages = data.get("value", [])
+#             ids = []
+#             senders = []
+#             # recipients = []
+#             # cced = []
+#             subjects = []
+#             for msg in messages:
+#                 ids.append(f"ID: {msg.get('id')}")
+#                 senders.append(f"Sender: {msg.get('sender')}")
+#                 subjects.append(f"Subject: {msg.get('subject')}")
+#             for unique_ids in set(ids):
+#                 additional_json_info.append(unique_ids)
+#             for unique_senders in set(senders):
+#                 additional_json_info.append('Sender: ' + unique_senders.split(': ')[-1].strip('}}'))
+#             for unique_subjects in set(subjects):
+#                 additional_json_info.append(str(unique_subjects)) 
+#             return sorted(additional_json_info, reverse=True)
+#     return []            
+
 def get_json_file_lines(outlook_filename):
     additional_json_info = []
     if outlook_filename.endswith('.json'):
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
-        # with open('to.json', 'r', encoding='utf-8', errors='ignore') as outlook_file:
             raw_json = outlook_file.read()
             cleaned_json = re.sub(r'"body"\s*:\s*\{.*?\},?', '', raw_json, flags=re.DOTALL)
             data = json.loads(cleaned_json)
             messages = data.get("value", [])
-            ids = []
-            senders = []
-            # recipients = []
-            # cced = []
-            subjects = []
-            for msg in messages:
-                ids.append(f"ID: {msg.get('id')}")
-                senders.append(f"Sender: {msg.get('sender')}")
-                subjects.append(f"Subject: {msg.get('subject')}")
-            for unique_ids in set(ids):
-                additional_json_info.append(unique_ids)
-            for unique_senders in set(senders):
-                additional_json_info.append('Sender: ' + unique_senders.split(': ')[-1].strip('}}'))
-            for unique_subjects in set(subjects):
-                additional_json_info.append(str(unique_subjects)) 
-            return sorted(additional_json_info, reverse=True)
-    return []            
+            for email in messages:
+                id = email.get('id')
+                subject = email.get('subject')
+                sender = email.get('sender', {}).get('emailAddress', {})
+                sender_address = sender.get('address', 'N/A')
+                to_recipients = email.get('toRecipients', [])
+                to_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in to_recipients})
+                cc_recipients = email.get('ccRecipients', [])
+                cc_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in cc_recipients})
+                additional_json_info.append("ID: " + id +
+                    "\nSubject: " + subject +
+                    "\nSender: " + sender_address +
+                    "\nRecipients: " + str(to_addresses).lstrip('[').strip(']') +
+                    "\nCc'ed: " + str(cc_addresses).lstrip('[').strip(']') +
+                    "\n"
+                    )
+            return additional_json_info
+    return[]
 
 def find_matches(content, exclusion_list):
     matches = []
