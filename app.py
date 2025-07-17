@@ -27,6 +27,12 @@ def get_exclusions_from_file(input_exclusion_file, column_name):
         return [], f"Error reading exclusion file: {e}"
     return exclusion_list, None
 
+def full_exclusion_file(input_exclusion_file):
+    with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
+        reader = csv.DictReader(full_exclusions_csv)
+        rows = list(reader)
+        return rows
+
 
 def full_exclusion_file(input_exclusion_file):
     with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
@@ -190,3 +196,5 @@ def index():
 
 if __name__ == "__main__":
     app.run()
+
+    # test test test

@@ -39,6 +39,20 @@
   thead {
     background-color: #eee;
   }
+      table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  thead {
+    background-color: #eee;
+  }
   </style>
 </head>
 <body>
@@ -79,6 +93,24 @@
       <details open>
         <summary><b>Exclusion List:</b></summary>
         <pre>
+          <table border="1">
+            <thead>
+              <tr>
+                {% for key in full_csv_output[0].keys() %}
+                  <th>{{ key }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in full_csv_output %}
+              <tr>
+                {% for value in row.values() %}
+                  <td>{{ value }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
           <table border="1">
             <thead>
               <tr>
