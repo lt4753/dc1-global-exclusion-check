@@ -5,13 +5,16 @@ import csv
 import re
 import os
 import json
+import email
 from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 UPLOAD_FOLDER = "uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 
 def get_exclusions_from_file(input_exclusion_file, column_name):
     exclusion_list = []
@@ -26,11 +29,13 @@ def get_exclusions_from_file(input_exclusion_file, column_name):
         return [], f"Error reading exclusion file: {e}"
     return exclusion_list, None
 
+
 def full_exclusion_file(input_exclusion_file):
     with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
         reader = csv.DictReader(full_exclusions_csv)
         rows = list(reader)
         return rows
+
 
 def get_outlook_file(outlook_filename):
     try:
@@ -39,15 +44,19 @@ def get_outlook_file(outlook_filename):
     except Exception as e:
         return None, f"Error reading Outlook file: {e}"
 
+
+# CONVERT THIS SECTION TO NEW PARSE STYLE FOUND IN ICS SECTION
 def get_ics_file_lines(outlook_filename):
     additional_ics_info = []
     if outlook_filename.endswith('.ics'):
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
             reader = outlook_file.readlines()
             for line in range(len(reader)):
-                # NEED TO ADJUST LOGIC FOR ATTENDEES SPANNING TO A SECOND LINE
-                if reader[line].startswith('ATTENDEE;'):
+                if reader[line].startswith('ATTENDEE;') and reader[line].strip().endswith('.com'):
                     additional_ics_info.append("Attendee: " + str(reader[line].split('mailto:')[-1]).strip())
+                if reader[line].startswith('ATTENDEE;') and reader[line + 1].startswith(' '):
+                    two_line_attendee = reader[line].strip() + reader[line + 1].lstrip()
+                    additional_ics_info.append("Attendee: " + two_line_attendee.split('mailto:')[-1].strip())
                 if reader[line].startswith('UID:'):
                     uid_single_line = reader[line]
                     if reader[line + 1].startswith(' '):
@@ -59,94 +68,58 @@ def get_ics_file_lines(outlook_filename):
             return sorted(additional_ics_info, reverse=True)
     return []
 
+
+# NEW STYLE OF PARSING OUTLOOK FILE
 def get_eml_file_lines(outlook_filename):
     additional_eml_info = []
     if outlook_filename.endswith('.eml'):
-        with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
-            reader = outlook_file.readlines()
-            for line in range(len(reader)):
-                if reader[line].startswith('From:'):
-                    additional_eml_info.append("Sender: " + str(reader[line].split('<')[-1].replace('>', '').strip()))
-                if reader[line].startswith('Message-ID:'):
-                    message_id1 = reader[line].replace(': <', ': ')
-                    message_id2 = ''
-                    message_id = ''
-                    if reader[line + 1].startswith(' '):
-                        message_id2 = reader[line + 1].replace('<', '')
-                        message_id = message_id1 + message_id2
-                        additional_eml_info.append(message_id.replace('>', '').strip())
-                    additional_eml_info.append(message_id1.replace('>', '').strip())
-                # NEED TO SOLVE LOGIC FOR EXTAR LINES PAST THE FIRST TWO
-                # NEED TO SOLVE FOR EXTRA POSSIBLE EXTAR SPACE IN TO HEADER SPANNING TWO LINES
-                if reader[line].startswith('To:'):
-                    eml_to_single_line = re.split('[<|>]', reader[line])
-                    eml_to = reader[line]
-                    if reader[line + 1].startswith(' '):
-                        eml_to_next_line = reader[line + 1]
-                        eml_to += eml_to_next_line
-                        clean_eml_to_multiline = re.split('[<|>]', eml_to)
-                        for recipient in clean_eml_to_multiline:
-                            if '@' in recipient:
-                                additional_eml_info.append(f'To: {recipient}'.strip(' '))
-                    else:
-                        for recipient in eml_to_single_line:
-                            if '@' in recipient:
-                                additional_eml_info.append(f'To: {recipient}'.strip('>'))
-                # ADDING LOGIC FOR CC
-                # WILL NEED TO APPLY 3+ LINE LOGIC TO THIS SECTION
-                if reader[line].startswith('Cc:'):
-                    eml_cc_single_line = re.split('[<|>]', reader[line])
-                    eml_cc = reader[line]
-                    if reader[line + 1].startswith(' '):
-                        eml_cc_next_line = reader[line + 1]
-                        eml_cc += eml_to_next_line
-                        clean_eml_cc_multiline = re.split('[<|>]', eml_cc)
-                        for recipient in clean_eml_cc_multiline:
-                            if '@' in recipient:
-                                additional_eml_info.append(f'Cc: {recipient}'.strip(' '))
-                    else:
-                        for recipient in eml_cc_single_line:
-                            if '@' in recipient:
-                                additional_eml_info.append(f'Cc: {recipient}'.strip('>'))
-            return additional_eml_info
-    return []
+        with open(outlook_filename, 'rb') as outlook_file: #  <-------------
+            reader = email.message_from_binary_file(outlook_file)  # <------------
 
-# ADDED SECTION FOR JSON (GRAPH EXPLORER FILE)    
-# OLD OLD OLD OLD OLD            
-# def get_json_file_lines(outlook_filename):
-#     additional_json_info = []
-#     if outlook_filename.endswith('.json'):
-#         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
-#             raw_json = outlook_file.read()
-#             cleaned_json = re.sub(r'"body"\s*:\s*\{.*?\},?', '', raw_json, flags=re.DOTALL)
-#             data = json.loads(cleaned_json)
-#             messages = data.get("value", [])
-#             ids = []
-#             senders = []
-#             # recipients = []
-#             # cced = []
-#             subjects = []
-#             for msg in messages:
-#                 ids.append(f"ID: {msg.get('id')}")
-#                 senders.append(f"Sender: {msg.get('sender')}")
-#                 subjects.append(f"Subject: {msg.get('subject')}")
-#             for unique_ids in set(ids):
-#                 additional_json_info.append(unique_ids)
-#             for unique_senders in set(senders):
-#                 additional_json_info.append('Sender: ' + unique_senders.split(': ')[-1].strip('}}'))
-#             for unique_subjects in set(subjects):
-#                 additional_json_info.append(str(unique_subjects)) 
-#             return sorted(additional_json_info, reverse=True)
-#     return []            
+            sender = reader['From'].split('<')[-1].strip('>')
+            additional_eml_info.append(f'From: {sender}')
+
+            to_raw = reader['To']
+            to_single_line = re.sub(r'\r?\n[ \t]+', '', to_raw).split(',')
+            to_list = ''
+            for recip in to_single_line:
+                to_list += recip
+            fixed_to_list = re.split('[<|>]', to_list)
+            for to in fixed_to_list:
+                if '@' in to:
+                    additional_eml_info.append(f'To: {to}')
+
+            cc_raw = reader['Cc']
+            cc_single_line = re.sub(r'\r?\n[ \t]+', '', cc_raw).split(',')
+            cc_list = ''
+            for recip in cc_single_line:
+                cc_list += recip
+            fixed_cc_list = re.split('[<|>]', cc_list)
+            for cc in fixed_cc_list:
+                if '@' in cc:
+                    additional_eml_info.append(f'Cc: {cc}')
+
+            subject = reader['Subject']
+            additional_eml_info.append(f'Subject: {subject}')
+
+            messageid = reader['Message-ID']
+            additional_eml_info.append(f'Message-ID: {messageid}')
+
+            return additional_eml_info
+        
+    return []
+        
 
 def get_json_file_lines(outlook_filename):
     additional_json_info = []
     if outlook_filename.endswith('.json'):
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+
             raw_json = outlook_file.read()
             cleaned_json = re.sub(r'"body"\s*:\s*\{.*?\},?', '', raw_json, flags=re.DOTALL)
             data = json.loads(cleaned_json)
             messages = data.get("value", [])
+
             for email in messages:
                 id = email.get('id')
                 subject = email.get('subject')
@@ -164,8 +137,11 @@ def get_json_file_lines(outlook_filename):
                     "\n" +
                     "\n"
                     )
+                
             return additional_json_info
+        
     return[]
+
 
 def find_matches(content, exclusion_list):
     matches = []
@@ -173,6 +149,7 @@ def find_matches(content, exclusion_list):
         if re.search(re.escape(keyword), content, re.IGNORECASE):
             matches.append(keyword)
     return matches
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -213,6 +190,7 @@ def index():
                                ) 
 
     return render_template("index.html")
+
 
 if __name__ == "__main__":
     app.run()
