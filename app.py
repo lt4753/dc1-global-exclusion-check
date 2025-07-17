@@ -55,19 +55,24 @@ def get_ics_file_lines(outlook_filename):
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
             reader = outlook_file.readlines()
             for line in range(len(reader)):
+
                 if reader[line].startswith('ATTENDEE;') and reader[line].strip().endswith('.com'):
                     additional_ics_info.append("Attendee: " + str(reader[line].split('mailto:')[-1]).strip())
-                if reader[line].startswith('ATTENDEE;') and reader[line + 1].startswith(' '):
+
+                if reader[line].startswith('ATTENDEE;') and reader[line + 1].startswith('	'):
                     two_line_attendee = reader[line].strip() + reader[line + 1].lstrip()
                     additional_ics_info.append("Attendee: " + two_line_attendee.split('mailto:')[-1].strip())
+
                 if reader[line].startswith('UID:'):
                     uid_single_line = reader[line]
-                    if reader[line + 1].startswith(' '):
+                    if reader[line + 1].startswith('	'):
                         uid_multi_line = reader[line].strip() + reader[line + 1].lstrip()
                         additional_ics_info.append(uid_multi_line.replace('UID:', 'UID: '))
                     else: additional_ics_info.append(uid_single_line.replace('UID:', 'UID: '))
+
                 if reader[line].startswith('ORGANIZER;'):
                     additional_ics_info.append("Organizer: " + str(reader[line].split('mailto:')[-1]).strip())
+
             return sorted(additional_ics_info, reverse=True)
     return []
 
@@ -196,5 +201,3 @@ def index():
 
 if __name__ == "__main__":
     app.run()
-
-    # test test test
