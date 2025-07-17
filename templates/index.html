@@ -6,12 +6,43 @@
         body {
           font-family: Arial, sans-serif;
         }
+      table {
+    border-collapse: collapse;
+    width: 15%;
+  }
   </style>
 </head>
 <body>
-  <h1>Upload Files:</h1>
-  <h3>| Export Exclusions.csv from client site:  <i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3><br>
-  <h3>| Outlook file to be shared from client in .ics (event) or .eml (email) format</h3><br><hr><br>
+  <h1 >Upload Files:</h1>
+  <h3>| Export Exclusions.csv from client site:<br>  <i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3><br>
+  <h3>| Supported file types:</h3>
+  <table border="1" >
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>File Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Exclusions</td>
+      <td>.csv</td>
+    </tr>
+    <tr>
+      <td>Outlok - Email</td>
+      <td>.eml</td>
+    </tr>
+    <tr>
+      <td>Outlook - Event</td>
+      <td>.ics</td>
+    </tr>
+    <tr>
+      <td>Graph Explorer</td>
+      <td>.json</td>
+    </tr>
+  </tbody>
+</table>
+  <br><hr><br>
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul>{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>

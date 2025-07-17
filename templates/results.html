@@ -25,26 +25,53 @@
       white-space: pre-wrap;
       word-break: break-word;
     }
+      table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  thead {
+    background-color: #eee;
+  }
   </style>
 </head>
 <body>
-  <h1>Match Results</h1>
-  <h3 style="color: red;">NOTE - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
-  <h3 style="color: red;">This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
+  <h1>Results:</h1>
+  <h3 style="color: red;">NOTE 1 - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
+  <h3 style="color: red;">NOTE 2 - This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
+  <h3 style="color: red;">NOTE 3 - The most accurate representation of the data collected by Relationship Intelligence can be found in Graph Explorer. <br>
+    Email (.eml) and Event (.ics) files can be helpful in a quick review but might not reveal the full scope of a given troubleshooting event.</h3>
   <hr>
 
   {% if matches %}
-    <h3>Potential matches found:</h3>
+    <h3>Potential Global Exclusions found:</h3>
     <ul>
       {% for match in matches %}
         <li>{{ match }}</li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>No matches found.</p>
+    <br><h3>No Global Exclusions found.</h3><br>
   {% endif %}
 
-  <hr><br>
+  <hr>
+  <br><h3>Additional Info:</h3>
+    {% for additional_ics_info in lines_from_ics%}
+    <p>{{ additional_ics_info }}</p>
+    {% endfor %}
+    {% for additional_eml_info in lines_from_eml%}
+    <p>{{ additional_eml_info }}</p>
+    {% endfor %}
+    {% for additional_json_info in lines_from_json%}
+    <pre><p>{{ additional_json_info }}</p></pre>
+    {% endfor %}
+  <br><hr><br>
 
   <div class="side-by-side">
     <!-- LEFT SIDE: Exclusion List -->
@@ -52,9 +79,24 @@
       <details open>
         <summary><b>Exclusion List:</b></summary>
         <pre>
-{% for exclusion in exclusions %}
-{{ exclusion }}
-{% endfor %}
+          <table border="1">
+            <thead>
+              <tr>
+                {% for key in full_csv_output[0].keys() %}
+                  <th>{{ key }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in full_csv_output %}
+              <tr>
+                {% for value in row.values() %}
+                  <td>{{ value }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </pre>
       </details>
     </div>
@@ -64,7 +106,7 @@
       <details open>
         <summary><b>Outlook File Content:</b></summary>
         <pre>
-{{ content }}
+        {{ content }}
         </pre>
       </details>
     </div>
