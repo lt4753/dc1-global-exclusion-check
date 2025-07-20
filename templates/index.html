@@ -14,8 +14,11 @@
 </head>
 <body>
   <h1 style="color: red;">DEV</h1>
-  <h1 >Upload Files:</h1>
-  <h3>| Export Exclusions.csv from client site:<br>  <i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3><br>
+  <h1 >Global Exclusion Checker / File Parser</h1>
+  <h2>The purpose of this tool is to identify keywords from a Global Exclusion file within an Outlook file.<br>
+  Some key info will also be parsed from the file for better readability (Subject, ID, To, From)</h2>
+  <h3>| Export Exclusions.csv from client site:<br><i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3>
+  <h3>| Outlook file to be provided by client
   <h3>| Supported file types:</h3>
   <table border="1" >
   <thead>
@@ -44,6 +47,7 @@
   </tbody>
 </table>
   <br><hr><br>
+  <h1>Upload Files:</h1>
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul>{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>

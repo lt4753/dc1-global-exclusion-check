@@ -60,11 +60,12 @@
   {% else %}
     <br><h3>No Global Exclusions found.</h3><br>
   {% endif %}
-
+  <br>
+  <form action="https://dc1-global-exclusions-check-dev-afdjhqheh5hafmh7.eastus2-01.azurewebsites.net/">
+    <input type="submit" value="Return to home page">
+  </form>
   <hr>
   <br><h3>Additional Info:</h3>
-    <h4 style="color: red;">!!! UNDER CONSTRUCTION:<br> 
-      EML/ICS: Header Parsing - Headers spanning multiple lines may be formatted incorrectly<br></h4>
     {% for additional_ics_info in lines_from_ics%}
     <p>{{ additional_ics_info }}</p>
     {% endfor %}

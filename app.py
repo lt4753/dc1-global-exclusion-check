@@ -93,16 +93,18 @@ def get_eml_file_lines(outlook_filename):
             for to in fixed_to_list:
                 if '@' in to:
                     additional_eml_info.append(f'To: {to}')
-
-            cc_raw = reader['Cc']
-            cc_single_line = re.sub(r'\r?\n[ \t]+', '', cc_raw).split(',')
-            cc_list = ''
-            for recip in cc_single_line:
-                cc_list += recip
-            fixed_cc_list = re.split('[<|>]', cc_list)
-            for cc in fixed_cc_list:
-                if '@' in cc:
-                    additional_eml_info.append(f'Cc: {cc}')
+            
+            # error debug test
+            if "Cc: " in reader:
+                cc_raw = reader['Cc']
+                cc_single_line = re.sub(r'\r?\n[ \t]+', '', cc_raw).split(',')
+                cc_list = ''
+                for recip in cc_single_line:
+                    cc_list += recip
+                fixed_cc_list = re.split('[<|>]', cc_list)
+                for cc in fixed_cc_list:
+                    if '@' in cc:
+                        additional_eml_info.append(f'Cc: {cc}')
 
             subject = reader['Subject']
             additional_eml_info.append(f'Subject: {subject}')
@@ -196,6 +198,10 @@ def index():
 
     return render_template("index.html")
 
+# TESTING BUTTON TO RETURN TO HOME PAGE
+# @app.route("/")
+# def go_home():
+#     return render_template("index.html")
 
 if __name__ == "__main__":
     app.run()
