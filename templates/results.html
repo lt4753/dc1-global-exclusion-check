@@ -73,7 +73,9 @@
   {% else %}
     <br><h3>No Global Exclusions found.</h3><br>
   {% endif %}
-
+  <form action="https://dc1-global-exclusions-check.azurewebsites.net">
+    <input type="submit" value="Return to home page">
+  </form>
   <hr>
   <br><h3>Additional Info:</h3>
     {% for additional_ics_info in lines_from_ics%}

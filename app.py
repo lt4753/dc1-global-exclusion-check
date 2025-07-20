@@ -96,7 +96,7 @@ def get_eml_file_lines(outlook_filename):
                 if '@' in to:
                     additional_eml_info.append(f'To: {to}')
 
-            if 'Cc:' or 'CC:' in reader:
+            if 'Cc: ' or 'CC: ' in reader:
                 cc_raw = reader['Cc']
                 cc_single_line = re.sub(r'\r?\n[ \t]+', '', cc_raw).split(',')
                 cc_list = ''
