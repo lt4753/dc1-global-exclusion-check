@@ -1,61 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Exclusion Checker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-        body {
-          font-family: Arial, sans-serif;
-        }
-      table {
-    border-collapse: collapse;
-    width: 15%;
-  }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
   </style>
 </head>
-<body>
-  <h1 >Global Exclusion Checker / File Parser</h1>
-  <h2>The purpose of this tool is to identify keywords from a Global Exclusion file within an Outlook file.<br>
-  Some key info will also be parsed from the file for better readability (Subject, ID, To, From)</h2>
-  <h3>| Export Exclusions.csv from client site:<br><i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></h3>
-  <h3>| Outlook file to be provided by client
-  <h3>| Supported file types:</h3>
-  <table border="1" >
-  <thead>
-    <tr>
-      <th>File</th>
-      <th>File Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Exclusions</td>
-      <td>.csv</td>
-    </tr>
-    <tr>
-      <td>Outlok - Email</td>
-      <td>.eml</td>
-    </tr>
-    <tr>
-      <td>Outlook - Event</td>
-      <td>.ics</td>
-    </tr>
-    <tr>
-      <td>Graph Explorer</td>
-      <td>.json</td>
-    </tr>
-  </tbody>
-</table>
-  <br><hr><br>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <ul>{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
-    {% endif %}
-  {% endwith %}
-  <form method="POST" enctype="multipart/form-data">
-    <label>Exclusions.csv: <input type="file" name="exclusions" required></label><br><br><br>
-    <label>Outlook File: <input type="file" name="outlook" required></label><br><br><br>
-    <input type="submit" value="Check for Global Exclusions">
-  </form>
+<body class="h-screen flex bg-gray-100 text-gray-800">
+
+  <!-- Sidebar -->
+  <!-- <aside class="w-64 bg-[#2c3e50] text-white flex flex-col">
+    <div class="p-6 text-xl font-bold border-b border-gray-600">Exclusion Tool</div>
+    <nav class="flex-1 p-4 space-y-4">
+      <a href="#" class="block py-2 px-3 rounded hover:bg-[#34495e]">Dashboard</a>
+      <a href="#" class="block py-2 px-3 rounded hover:bg-[#34495e]">Upload Files</a>
+      <a href="#" class="block py-2 px-3 rounded hover:bg-[#34495e]">Reports</a>
+    </nav>
+    <div class="p-4 border-t border-gray-600 text-sm">© 2025 Internal Tool</div>
+  </aside> -->
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col overflow-y-auto">
+
+    <!-- Header -->
+    <header class="h-16 bg-white shadow flex items-center justify-between px-6 border-b">
+      <h1 class="text-2xl font-semibold">Global Exclusion Checker</h1>
+    </header>
+
+    <!-- Page Content -->
+    <div class="p-8 space-y-6">
+      <div class="bg-white rounded shadow p-6 space-y-4">
+        <h2 class="text-xl font-semibold">About This Tool</h2>
+        <p>The purpose of this tool is to identify keywords from a Global Exclusion file within an Outlook file. Some key info will also be parsed from the file for better readability (Subject, ID, To, From).</p>
+
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong>Export <code>Exclusions.csv</code> from client site:</strong><br><i>Admin > Site Settings > Integration > DealCloud Email Integration > Global Exclusions > Export</i></li>
+          <li><strong>Outlook file:</strong> To be provided by the client.</li>
+          <li><strong>Supported file types:</strong></li>
+        </ul>
+
+        <table class="min-w-full mt-4 text-sm border border-gray-300">
+          <thead class="bg-gray-100 text-left">
+            <tr>
+              <th class="py-2 px-4 border-b border-gray-300">File</th>
+              <th class="py-2 px-4 border-b border-gray-300">File Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-2 px-4">Exclusions</td>
+              <td class="py-2 px-4">.csv</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-4">Outlook - Email</td>
+              <td class="py-2 px-4">.eml</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-2 px-4">Outlook - Event</td>
+              <td class="py-2 px-4">.ics</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4">Graph Explorer</td>
+              <td class="py-2 px-4">.json</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="bg-yellow-100 text-yellow-800 p-4 rounded">
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- File Upload Form -->
+      <form method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded shadow space-y-6">
+        <div>
+          <label class="block font-medium mb-2">Exclusions.csv</label>
+          <input type="file" name="exclusions" required class="block w-full border rounded p-2">
+        </div>
+        <div>
+          <label class="block font-medium mb-2">Outlook File</label>
+          <input type="file" name="outlook" required class="block w-full border rounded p-2">
+        </div>
+        <div>
+          <input type="submit" value="Check for Global Exclusions" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        </div>
+      </form>
+    </div>
+
+  </main>
 </body>
 </html>
-<!-- test -->

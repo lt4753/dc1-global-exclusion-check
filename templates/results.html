@@ -1,150 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      font-family: 'Segoe UI', sans-serif;
     }
-
-    .side-by-side {
-      display: flex;
-      gap: 30px;
-    }
-
-    .left, .right {
-      flex: 1;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-      table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-  }
-
-  thead {
-    background-color: #eee;
-  }
-      table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-  }
-
-  thead {
-    background-color: #eee;
-  }
   </style>
 </head>
-<body>
-  <h1>Results:</h1>
-  <h3 style="color: red;">NOTE 1 - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
-  <h3 style="color: red;">NOTE 2 - This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
-  <h3 style="color: red;">NOTE 3 - The most accurate representation of the data collected by Relationship Intelligence can be found in Graph Explorer. <br>
-    Email (.eml) and Event (.ics) files can be helpful in a quick review but might not reveal the full scope of a given troubleshooting event.</h3>
-  <hr>
+<body class="h-screen flex bg-gray-100 text-gray-800">
 
-  {% if matches %}
-    <h3>Potential Global Exclusions found:</h3>
-    <ul>
-      {% for match in matches %}
-        <li>{{ match }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <br><h3>No Global Exclusions found.</h3><br>
-  {% endif %}
-  <form action="https://dc1-global-exclusions-check.azurewebsites.net">
-    <input type="submit" value="Return to home page">
-  </form>
-  <hr>
-  <br><h3>Additional Info:</h3>
-    {% for additional_ics_info in lines_from_ics%}
-    <p>{{ additional_ics_info }}</p>
-    {% endfor %}
-    {% for additional_eml_info in lines_from_eml%}
-    <p>{{ additional_eml_info }}</p>
-    {% endfor %}
-    {% for additional_json_info in lines_from_json%}
-    <pre><p>{{ additional_json_info }}</p></pre>
-    {% endfor %}
-  <br><hr><br>
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col overflow-y-auto">
 
-  <div class="side-by-side">
-    <!-- LEFT SIDE: Exclusion List -->
-    <div class="left">
-      <details open>
-        <summary><b>Exclusion List:</b></summary>
-        <pre>
-          <table border="1">
-            <thead>
-              <tr>
-                {% for key in full_csv_output[0].keys() %}
-                  <th>{{ key }}</th>
-                {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in full_csv_output %}
-              <tr>
-                {% for value in row.values() %}
-                  <td>{{ value }}</td>
-                {% endfor %}
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-          <!-- <table border="1">
-            <thead>
-              <tr>
-                {% for key in full_csv_output[0].keys() %}
-                  <th>{{ key }}</th>
-                {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in full_csv_output %}
-              <tr>
-                {% for value in row.values() %}
-                  <td>{{ value }}</td>
-                {% endfor %}
-              </tr>
-              {% endfor %}
-            </tbody> -->
-          </table>
-        </pre>
-      </details>
+    <!-- Header -->
+    <header class="h-16 bg-white shadow flex items-center justify-between px-6 border-b">
+      <h1 class="text-2xl font-semibold">Results</h1>
+    </header>
+
+    <!-- Page Content -->
+    <div class="p-8 space-y-6">
+
+      <h1 class="text-2xl font-bold">Results:</h1>
+
+      <div class="space-y-2 text-sm bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded">
+        <h3><strong>NOTE 1</strong> - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
+        <h3><strong>NOTE 2</strong> - This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
+        <h3><strong>NOTE 3</strong> - The most accurate representation of the data collected by Relationship Intelligence can be found in Graph Explorer. <br>
+          Email (.eml) and Event (.ics) files can be helpful in a quick review but might not reveal the full scope of a given troubleshooting event.
+        </h3>
+      </div>
+
+      <hr class="border-gray-300">
+
+      {% if matches %}
+        <h3 class="text-lg font-semibold text-red-700">Potential Global Exclusions found:</h3>
+        <ul class="list-disc pl-6 text-sm">
+          {% for match in matches %}
+            <li>{{ match }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <br>
+        <h3 class="text-lg font-semibold text-green-700">No Global Exclusions found.</h3>
+        <br>
+      {% endif %}
+
+      <form action="https://dc1-global-exclusions-check.azurewebsites.net">
+        <input type="submit" value="Return to Home Page" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      </form>
+
+      <br>
+
+      <script>
+        function togglePanel() {
+          const panel = document.getElementById('additionalInfoPanel');
+          const showBtn = document.getElementById('showPanelBtn');
+          const exclusionPanel = document.getElementById('exclusionPanel');
+          const outlookPanel = document.getElementById('outlookPanel');
+
+          const isCollapsed = panel.classList.contains('hidden');
+
+          if (isCollapsed) {
+            panel.classList.remove('hidden');
+            showBtn.classList.add('hidden');
+            panel.classList.add('block');
+            panel.classList.remove('w-0');
+            exclusionPanel.classList.replace('basis-1/2', 'basis-1/3');
+            outlookPanel.classList.replace('basis-1/2', 'basis-1/3');
+            } else {
+            panel.classList.add('hidden');
+            panel.classList.remove('block');
+            showBtn.classList.remove('hidden');
+            exclusionPanel.classList.replace('basis-1/3', 'basis-1/2');
+            outlookPanel.classList.replace('basis-1/3', 'basis-1/2');
+          }
+        }
+      </script>
+
+<!-- WRAPPER: Additional Info + Exclusion + Outlook Content -->
+<div class="flex gap-4 mt-6">
+
+  <!-- COLLAPSIBLE PANEL: Additional Info -->
+  <div id="additionalInfoPanel" class="basis-1/3 transition-all duration-300 ease-in-out bg-white max-h-[1000px] rounded border border-gray-300 p-4 overflow-auto">
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="text-md font-semibold">Additional Info</h3>
+      <button onclick="togglePanel()" class="text-sm text-blue-600 hover:underline">Collapse</button>
     </div>
-
-    <!-- RIGHT SIDE: Outlook Content -->
-    <div class="right">
-      <details open>
-        <summary><b>Outlook File Content:</b></summary>
-        <pre>
-        {{ content }}
-        </pre>
-      </details>
-    </div>
+    {% for additional_ics_info in lines_from_ics %}
+      <p class="text-sm">{{ additional_ics_info }}</p>
+    {% endfor %}
+    {% for additional_eml_info in lines_from_eml %}
+      <p class="text-sm">{{ additional_eml_info }}</p>
+    {% endfor %}
+    {% for additional_json_info in lines_from_json %}
+      <pre class="bg-gray-100 p-2 rounded text-sm whitespace-pre-wrap break-words">{{ additional_json_info }}</pre>
+    {% endfor %}
   </div>
 
+  <!-- EXPAND BUTTON -->
+  <button id="showPanelBtn" onclick="togglePanel()" class="hidden self-start bg-blue-600 text-white text-xs px-2 py-1 rounded hover:bg-blue-700">
+    &laquo; Expand Info
+  </button>
+
+  <!-- MAIN PANELS -->
+  <div id="exclusionPanel" class="basis-1/3 border border-gray-300 rounded bg-white p-4 overflow-auto max-h-[1000px] transition-all duration-300 ease-in-out">
+    <details open>
+      <summary class="text-lg font-semibold mb-2 cursor-pointer">Exclusion List:</summary>
+      <pre class="whitespace-pre-wrap break-words">
+        <table class="table-auto w-full border-collapse text-sm border border-gray-300">
+          <thead class="bg-gray-100">
+            <tr>
+              {% for key in full_csv_output[0].keys() %}
+                <th class="border px-4 py-2">{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in full_csv_output %}
+              <tr>
+                {% for value in row.values() %}
+                  <td class="border px-4 py-2">{{ value }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </pre>
+    </details>
+  </div>
+
+  <div id="outlookPanel" class="basis-1/3 border border-gray-300 rounded bg-white p-4 overflow-auto max-h-[1000px] transition-all duration-300 ease-in-out">
+    <details open>
+      <summary class="text-lg font-semibold mb-2 cursor-pointer">Outlook File Content:</summary>
+      <pre class="bg-gray-100 p-2 rounded whitespace-pre-wrap break-words">{{ content }}</pre>
+    </details>
+  </div>
+</div>
+
+
+    </div>
+  </main>
 </body>
 </html>
