@@ -1,120 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Results - Dev</title>
+  <meta charset="UTF-8">
+  <title>Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      font-family: 'Segoe UI', sans-serif;
     }
-
-    .side-by-side {
-      display: flex;
-      gap: 30px;
-    }
-
-    .left, .right {
-      flex: 1;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-      table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-  }
-
-  thead {
-    background-color: #eee;
-  }
   </style>
 </head>
-<body>
-  <h1 style="color: red;">DEV</h1>
-  <h1>Results:</h1>
-  <h3 style="color: red;">NOTE 1 - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
-  <h3 style="color: red;">NOTE 2 - This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
-  <h3 style="color: red;">NOTE 3 - The most accurate representation of the data collected by Relationship Intelligence can be found in Graph Explorer. <br>
-    Email (.eml) and Event (.ics) files can be helpful in a quick review but might not reveal the full scope of a given troubleshooting event.</h3>
-  <hr>
+<body class="h-screen flex bg-gray-100 text-gray-800">
 
-  {% if matches %}
-    <h3>Potential Global Exclusions found:</h3>
-    <ul>
-      {% for match in matches %}
-        <li>{{ match }}</li>
+  <!-- Sidebar -->
+  <!-- <aside class="w-64 bg-[#2c3e50] text-white flex flex-col">
+    <div class="p-6 text-xl font-bold border-b border-gray-600">Exclusion Tool</div>
+    <nav class="flex-1 p-4 space-y-4">
+      <a href="#" class="block py-2 px-3 rounded hover:bg-[#34495e]">Dashboard</a>
+      <a href="#" class="block py-2 px-3 rounded hover:bg-[#34495e]">Results</a>
+      <a href="https://dc1-global-exclusions-check.azurewebsites.net" class="block py-2 px-3 rounded hover:bg-[#34495e]">Home</a>
+    </nav>
+    <div class="p-4 border-t border-gray-600 text-sm">© 2025 Internal Tool</div>
+  </aside> -->
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col overflow-y-auto">
+
+    <!-- Header -->
+    <header style="color: red;" class="h-16 bg-white shadow flex items-center justify-between px-6 border-b">
+      <h1 class="text-2xl font-semibold">TEST SITE - Results</h1>
+    </header>
+
+    <!-- Page Content -->
+    <div class="p-8 space-y-6">
+
+      <h1 class="text-2xl font-bold">Results:</h1>
+
+      <div class="space-y-2 text-sm bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded">
+        <h3><strong>NOTE 1</strong> - Be sure to refer back to the Exclusion list to determine if the potential match would qualify the data for exclusion!</h3>
+        <h3><strong>NOTE 2</strong> - This tool checks only for string match case - an exclusion keyword may be found, but this does not necessarily mean it satisfies the rule.</h3>
+        <h3><strong>NOTE 3</strong> - The most accurate representation of the data collected by Relationship Intelligence can be found in Graph Explorer. <br>
+          Email (.eml) and Event (.ics) files can be helpful in a quick review but might not reveal the full scope of a given troubleshooting event.
+        </h3>
+      </div>
+
+      <hr class="border-gray-300">
+
+      {% if matches %}
+        <h3 class="text-lg font-semibold text-red-700">Potential Global Exclusions found:</h3>
+        <ul class="list-disc pl-6 text-sm">
+          {% for match in matches %}
+            <li>{{ match }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <br>
+        <h3 class="text-lg font-semibold text-green-700">No Global Exclusions found.</h3>
+        <br>
+      {% endif %}
+
+      <form action="https://dc1-global-exclusions-check.azurewebsites.net">
+        <input type="submit" value="Return to home page" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      </form>
+
+      <hr class="border-gray-300">
+      <br>
+      <h3 class="text-lg font-semibold">Additional Info:</h3>
+
+      {% for additional_ics_info in lines_from_ics %}
+        <p class="text-sm">{{ additional_ics_info }}</p>
       {% endfor %}
-    </ul>
-  {% else %}
-    <br><h3>No Global Exclusions found.</h3><br>
-  {% endif %}
-  <br>
-  <form action="https://dc1-global-exclusions-check-dev-afdjhqheh5hafmh7.eastus2-01.azurewebsites.net">
-    <input type="submit" value="Return to home page">
-  </form>
-  <hr>
-  <br><h3>Additional Info:</h3>
-    {% for additional_ics_info in lines_from_ics%}
-    <p>{{ additional_ics_info }}</p>
-    {% endfor %}
-    {% for additional_eml_info in lines_from_eml%}
-    <p>{{ additional_eml_info }}</p>
-    {% endfor %}
-    {% for additional_json_info in lines_from_json%}
-    <pre><p>{{ additional_json_info }}</p></pre>
-    {% endfor %}
-  <br><hr><br>
+      {% for additional_eml_info in lines_from_eml %}
+        <p class="text-sm">{{ additional_eml_info }}</p>
+      {% endfor %}
+      {% for additional_json_info in lines_from_json %}
+        <pre class="bg-gray-100 p-2 rounded text-sm"><p>{{ additional_json_info }}</p></pre>
+      {% endfor %}
 
-  <div class="side-by-side">
-    <!-- LEFT SIDE: Exclusion List -->
-    <div class="left">
-      <details open>
-        <summary><b>Exclusion List:</b></summary>
-        <pre>
-          <table border="1">
-            <thead>
-              <tr>
-                {% for key in full_csv_output[0].keys() %}
-                  <th>{{ key }}</th>
-                {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in full_csv_output %}
-              <tr>
-                {% for value in row.values() %}
-                  <td>{{ value }}</td>
-                {% endfor %}
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </pre>
-      </details>
+      <br>
+      <hr class="border-gray-300">
+      <br>
+
+      <div class="flex flex-col lg:flex-row gap-6">
+        <!-- LEFT SIDE: Exclusion List -->
+        <!-- <div class="flex-1 border border-gray-300 rounded bg-white p-4 overflow-x-auto"> -->
+        <div class="flex-1 border border-gray-300 rounded bg-white p-4 overflow-x-auto overflow-y-auto max-h-[500px]">
+          <details open>
+            <summary class="text-lg font-semibold mb-2 cursor-pointer">Exclusion List:</summary>
+            <pre class="whitespace-pre-wrap break-words">
+              <table class="table-auto w-full border-collapse text-sm border border-gray-300">
+                <thead class="bg-gray-100">
+                  <tr>
+                    {% for key in full_csv_output[0].keys() %}
+                      <th class="border px-4 py-2">{{ key }}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in full_csv_output %}
+                    <tr>
+                      {% for value in row.values() %}
+                        <td class="border px-4 py-2">{{ value }}</td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </pre>
+          </details>
+        </div>
+
+        <!-- RIGHT SIDE: Outlook Content -->
+        <!-- <div class="flex-1 border border-gray-300 rounded bg-white p-4 overflow-x-auto"> -->
+        <div class="flex-1 border border-gray-300 rounded bg-white p-4 overflow-x-auto overflow-y-auto max-h-[500px]">
+          <details open>
+            <summary class="text-lg font-semibold mb-2 cursor-pointer">Outlook File Content:</summary>
+            <pre class="bg-gray-100 p-2 rounded whitespace-pre-wrap break-words">
+              {{ content }}
+            </pre>
+          </details>
+        </div>
+      </div>
+
     </div>
-
-    <!-- RIGHT SIDE: Outlook Content -->
-    <div class="right">
-      <details open>
-        <summary><b>Outlook File Content:</b></summary>
-        <pre>
-{{ content }}
-        </pre>
-      </details>
-    </div>
-  </div>
-
+  </main>
 </body>
 </html>
