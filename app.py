@@ -18,11 +18,13 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def get_exclusions_from_file(input_exclusion_file, column_name):
     exclusion_list = []
+    override_list = False
     try:
         with open(input_exclusion_file, 'r', newline='') as exclusions_csv:
             reader = csv.DictReader(exclusions_csv)
-            if column_name not in reader.fieldnames:
-                return [], f"Error: '{column_name}' not found in file."
+            if override_list == False:
+                if column_name not in reader.fieldnames:
+                    return [], f"Error: '{column_name}' not found in file."
             for row in reader:
                 exclusion_list.append(row[column_name])
     except Exception as e:
@@ -129,19 +131,23 @@ def get_json_file_lines(outlook_filename):
 
             for email in messages:
                 id = email.get('id')
+                internet_message_id = email.get('internetMessageId')
                 subject = email.get('subject')
+                parent_folder = email.get('parentFolderId')
                 sender = email.get('sender', {}).get('emailAddress', {})
                 sender_address = sender.get('address', 'N/A')
                 to_recipients = email.get('toRecipients', [])
                 to_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in to_recipients})
                 cc_recipients = email.get('ccRecipients', [])
                 cc_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in cc_recipients})
-                additional_json_info.append("ID: " + id +
+                additional_json_info.append(
+                    "ID: " + id +
+                    "\nInternet Message ID: " + internet_message_id + 
                     "\nSubject: " + subject +
                     "\nSender: " + sender_address +
                     "\nRecipients: " + str(to_addresses).lstrip('[').strip(']') +
                     "\nCc'ed: " + str(cc_addresses).lstrip('[').strip(']') +
-                    "\n" +
+                    "\nParent Folder ID: " + parent_folder + 
                     "\n"
                     )
                 
@@ -197,11 +203,6 @@ def index():
                                ) 
 
     return render_template("index.html")
-
-# TESTING BUTTON TO RETURN TO HOME PAGE
-# @app.route("/")
-# def go_home():
-#     return render_template("index.html")
 
 if __name__ == "__main__":
     app.run()
