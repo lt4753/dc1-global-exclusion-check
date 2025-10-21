@@ -72,6 +72,9 @@ def get_ics_file_lines(outlook_filename):
                 if reader[line].startswith('ORGANIZER;'):
                     additional_ics_info.append("Organizer: " + str(reader[line].split('mailto:')[-1]).strip())
 
+                if reader[line].startswith('RECURRENCE-ID;'):
+                    additional_ics_info.append('RECURRING: YES')  
+
             return sorted(additional_ics_info, reverse=True)
     return []
 
