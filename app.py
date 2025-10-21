@@ -16,22 +16,18 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def get_exclusions_from_file(input_exclusion_file, column_name):
     exclusion_list = []
+    override_list = False
     try:
         with open(input_exclusion_file, 'r', newline='') as exclusions_csv:
             reader = csv.DictReader(exclusions_csv)
-            if column_name not in reader.fieldnames:
-                return [], f"Error: '{column_name}' not found in file."
+            if override_list == False:
+                if column_name not in reader.fieldnames:
+                    return [], f"Error: '{column_name}' not found in file."
             for row in reader:
                 exclusion_list.append(row[column_name])
     except Exception as e:
         return [], f"Error reading exclusion file: {e}"
     return exclusion_list, None
-
-def full_exclusion_file(input_exclusion_file):
-    with open(input_exclusion_file, 'r', newline='') as full_exclusions_csv:
-        reader = csv.DictReader(full_exclusions_csv)
-        rows = list(reader)
-        return rows
 
 
 def full_exclusion_file(input_exclusion_file):
@@ -73,6 +69,9 @@ def get_ics_file_lines(outlook_filename):
                 if reader[line].startswith('ORGANIZER;'):
                     additional_ics_info.append("Organizer: " + str(reader[line].split('mailto:')[-1]).strip())
 
+                if reader[line].startswith('RECURRENCE-ID;'):
+                    additional_ics_info.append('RECURRING: YES')  
+
             return sorted(additional_ics_info, reverse=True)
     return []
 
@@ -81,7 +80,7 @@ def get_eml_file_lines(outlook_filename):
     additional_eml_info = []
     if outlook_filename.endswith('.eml'):
         with open(outlook_filename, 'rb') as outlook_file:
-            reader = email.message_from_binary_file(outlook_file) 
+            reader = email.message_from_binary_file(outlook_file)
 
             sender = reader['From'].split('<')[-1].strip('>')
             additional_eml_info.append(f'From: {sender}')
@@ -95,8 +94,9 @@ def get_eml_file_lines(outlook_filename):
             for to in fixed_to_list:
                 if '@' in to:
                     additional_eml_info.append(f'To: {to}')
-
-            if 'Cc:' in reader:
+            
+            # error debug test
+            if "Cc: " in reader:
                 cc_raw = reader['Cc']
                 cc_single_line = re.sub(r'\r?\n[ \t]+', '', cc_raw).split(',')
                 cc_list = ''
@@ -130,19 +130,23 @@ def get_json_file_lines(outlook_filename):
 
             for email in messages:
                 id = email.get('id')
+                internet_message_id = email.get('internetMessageId')
                 subject = email.get('subject')
+                parent_folder = email.get('parentFolderId')
                 sender = email.get('sender', {}).get('emailAddress', {})
                 sender_address = sender.get('address', 'N/A')
                 to_recipients = email.get('toRecipients', [])
                 to_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in to_recipients})
                 cc_recipients = email.get('ccRecipients', [])
                 cc_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in cc_recipients})
-                additional_json_info.append("ID: " + id +
+                additional_json_info.append(
+                    "ID: " + id +
+                    "\nInternet Message ID: " + internet_message_id + 
                     "\nSubject: " + subject +
                     "\nSender: " + sender_address +
                     "\nRecipients: " + str(to_addresses).lstrip('[').strip(']') +
                     "\nCc'ed: " + str(cc_addresses).lstrip('[').strip(']') +
-                    "\n" +
+                    "\nParent Folder ID: " + parent_folder + 
                     "\n"
                     )
                 
@@ -198,7 +202,6 @@ def index():
                                ) 
 
     return render_template("index.html")
-
 
 if __name__ == "__main__":
     app.run()
