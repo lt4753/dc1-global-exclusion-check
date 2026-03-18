@@ -118,8 +118,45 @@ def get_eml_file_lines(outlook_filename):
     return []
         
 
+# def get_json_file_lines(outlook_filename):
+#     additional_json_info = []
+#     if outlook_filename.endswith('.json'):
+#         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
+
+#             raw_json = outlook_file.read()
+#             cleaned_json = re.sub(r'"body"\s*:\s*\{.*?\},?', '', raw_json, flags=re.DOTALL)
+#             data = json.loads(cleaned_json)
+#             messages = data.get("value", [])
+
+#             for email in messages:
+#                 id = email.get('id')
+#                 internet_message_id = email.get('internetMessageId')
+#                 subject = email.get('subject')
+#                 parent_folder = email.get('parentFolderId')
+#                 sender = email.get('sender', {}).get('emailAddress', {})
+#                 sender_address = sender.get('address', 'N/A')
+#                 to_recipients = email.get('toRecipients', [])
+#                 to_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in to_recipients})
+#                 cc_recipients = email.get('ccRecipients', [])
+#                 cc_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in cc_recipients})
+#                 additional_json_info.append(
+#                     "ID: " + id +
+#                     "\nInternet Message ID: " + internet_message_id + 
+#                     "\nSubject: " + subject +
+#                     "\nSender: " + sender_address +
+#                     "\nRecipients: " + str(to_addresses).lstrip('[').strip(']') +
+#                     "\nCc'ed: " + str(cc_addresses).lstrip('[').strip(']') +
+#                     "\nParent Folder ID: " + parent_folder + 
+#                     "\n"
+#                     )
+                
+#             return additional_json_info
+        
+#     return[]
+
 def get_json_file_lines(outlook_filename):
     additional_json_info = []
+
     if outlook_filename.endswith('.json'):
         with open(outlook_filename, 'r', encoding='utf-8', errors='ignore') as outlook_file:
 
@@ -129,30 +166,71 @@ def get_json_file_lines(outlook_filename):
             messages = data.get("value", [])
 
             for email in messages:
+                parts = []
+
                 id = email.get('id')
+                if id:
+                    parts.append("ID: " + id)
+
                 internet_message_id = email.get('internetMessageId')
+                if internet_message_id:
+                    parts.append("Internet Message ID: " + internet_message_id)
+
                 subject = email.get('subject')
+                if subject:
+                    parts.append("Subject: " + subject)
+
                 parent_folder = email.get('parentFolderId')
+                if parent_folder:
+                    parts.append("Parent Folder ID: " + parent_folder)
+
                 sender = email.get('sender', {}).get('emailAddress', {})
-                sender_address = sender.get('address', 'N/A')
+                sender_address = sender.get('address')
+                if sender_address:
+                    parts.append("Sender: " + sender_address)
+
                 to_recipients = email.get('toRecipients', [])
-                to_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in to_recipients})
+                to_addresses = sorted({
+                    r.get('emailAddress', {}).get('address')
+                    for r in to_recipients
+                    if r.get('emailAddress', {}).get('address')
+                })
+                if to_addresses:
+                    parts.append("Recipients: " + ", ".join(to_addresses))
+
                 cc_recipients = email.get('ccRecipients', [])
-                cc_addresses = sorted({recipient.get('emailAddress', {}).get('address', 'N/A') for recipient in cc_recipients})
-                additional_json_info.append(
-                    "ID: " + id +
-                    "\nInternet Message ID: " + internet_message_id + 
-                    "\nSubject: " + subject +
-                    "\nSender: " + sender_address +
-                    "\nRecipients: " + str(to_addresses).lstrip('[').strip(']') +
-                    "\nCc'ed: " + str(cc_addresses).lstrip('[').strip(']') +
-                    "\nParent Folder ID: " + parent_folder + 
-                    "\n"
-                    )
-                
+                cc_addresses = sorted({
+                    r.get('emailAddress', {}).get('address')
+                    for r in cc_recipients
+                    if r.get('emailAddress', {}).get('address')
+                })
+                if cc_addresses:
+                    parts.append("Cc'ed: " + ", ".join(cc_addresses))
+
+                # TESTING
+
+                organizer = email.get('organizer', {}).get('emailAddress', {})
+                organizer_address = organizer.get('address')
+                if organizer_address:
+                    parts.append("Sender: " + organizer_address)
+
+                attendees_list = email.get('attendees', [])
+                attendees_emails = sorted({
+                    r.get('emailAddress', {}).get('address')
+                    for r in attendees_list
+                    if r.get('emailAddress', {}).get('address')
+                })
+                if attendees_emails:
+                    parts.append("Attendees: " + ", ".join(attendees_emails))
+                # TESTING
+
+                # Only append if something exists
+                if parts:
+                    additional_json_info.append("\n".join(parts) + "\n")
+
             return additional_json_info
-        
-    return[]
+
+    return []
 
 
 def find_matches(content, exclusion_list):

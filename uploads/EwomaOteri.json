@@ -1,0 +1,51 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('ewoma.oteri%40ec-ma.com')/messages/$entity",
+  "@odata.etag": "W/\"CQAAABYAAACyQgFPVczyQJWP3wBaIOCpAAusTjyC\"",
+  "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AskIBT1XM8kCVj98AWiDgqQAG6hEFDwAA",
+  "createdDateTime": "2024-11-07T17:36:27Z",
+  "lastModifiedDateTime": "2026-03-09T05:04:02Z",
+  "changeKey": "CQAAABYAAACyQgFPVczyQJWP3wBaIOCpAAusTjyC",
+  "categories": [],
+  "receivedDateTime": "2024-11-07T17:36:28Z",
+  "sentDateTime": "2024-11-07T17:36:14Z",
+  "hasAttachments": true,
+  "internetMessageId": "<SJ2PR15MB6467B2BC68B853BA01F76950A85C2@SJ2PR15MB6467.namprd15.prod.outlook.com>",
+  "subject": "FW: Aramsco - Triple S - Email Template",
+  "bodyPreview": "Philip J. Piurek\r\nMarketing/Business Development\r\nEC Mergers & Acquisitions\r\n885 Third Avenue, 34th Floor\r\nNew York, NY 10022\r\nO: +1-212-972-4300\r\nD: +1-212-415-3981\r\nM: +1-631-640-9109\r\nEmail: philip.piurek@ec-ma.com\r\nWebsite: www.ec-ma.com\r\n\r\n  ",
+  "importance": "normal",
+  "parentFolderId": "AAMkADQwZDYxZGRiLTRmZTEtNDhiYS04NzJiLWMwNzkzMGNkZGQxYgAuAAAAAACOKIzbxma9SqtHtsKHgsdtAQCyQgFPVczyQJWP3wBaIOCpAAUR0cT4AAA=",
+  "conversationId": "AAQkADQwZDYxZGRiLTRmZTEtNDhiYS04NzJiLWMwNzkzMGNkZGQxYgAQAJA6GT-iHE4Vl1wOs_1Yn7w=",
+  "conversationIndex": "Adh/NKf3kDoZP+IcThWXXA6z7VifvAAEbQNwAABAgfCFY+hQsA==",
+  "isDeliveryReceiptRequested": false,
+  "isReadReceiptRequested": false,
+  "isRead": true,
+  "isDraft": false,
+  "webLink": "https://outlook.office365.com/owa/?ItemID=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AskIBT1XM8kCVj98AWiDgqQAG6hEFDwAA&exvsurl=1&viewmodel=ReadMessageItem",
+  "inferenceClassification": "focused",
+  "sender": {
+    "emailAddress": {
+      "name": "Philip J. Piurek",
+      "address": "philip.piurek@ec-ma.com"
+    }
+  },
+  "from": {
+    "emailAddress": {
+      "name": "Philip J. Piurek",
+      "address": "philip.piurek@ec-ma.com"
+    }
+  },
+  "toRecipients": [
+    {
+      "emailAddress": {
+        "name": "Ewoma Oteri",
+        "address": "ewoma.oteri@ec-ma.com"
+      }
+    }
+  ],
+  "ccRecipients": [],
+  "bccRecipients": [],
+  "replyTo": [],
+  "flag": {
+    "flagStatus": "notFlagged"
+  }
+}

@@ -1,0 +1,1182 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('andrew.decker%40guggenheimpartners.com')/calendarView",
+    "value": [
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwACac++Ig==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAAB3u4COGxs_R4OBn-lkLLdfAAIkge5rAAA=",
+            "createdDateTime": "2025-09-11T20:28:45.7874877Z",
+            "lastModifiedDateTime": "2025-12-26T15:15:42.1366646Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwACac++Ig==",
+            "categories": [],
+            "transactionId": "A8E6D923-D665-AD41-87DF-FE5EAE9DAAC6",
+            "originalStartTimeZone": "Central Standard Time",
+            "originalEndTimeZone": "Central Standard Time",
+            "iCalUId": "040000008200E00074C5B7101A82E0080000000045CB3BAC5A23DC010000000000000000100000005C0EDADE89A60D4C867A1429048DB30B",
+            "uid": "040000008200E00074C5B7101A82E0080000000045CB3BAC5A23DC010000000000000000100000005C0EDADE89A60D4C867A1429048DB30B",
+            "reminderMinutesBeforeStart": 15,
+            "isReminderOn": false,
+            "hasAttachments": false,
+            "subject": "Hiller at the lake house",
+            "bodyPreview": "",
+            "importance": "normal",
+            "sensitivity": "private",
+            "isAllDay": false,
+            "isCancelled": false,
+            "isOrganizer": true,
+            "responseRequested": true,
+            "seriesMasterId": null,
+            "showAs": "busy",
+            "type": "singleInstance",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY%2BMsocAAAH8bVdAAB3u4COGxs%2BR4OBn%2FlkLLdfAAIkge5rAAA%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": "",
+            "isOnlineMeeting": false,
+            "onlineMeetingProvider": "unknown",
+            "allowNewTimeProposals": true,
+            "occurrenceId": null,
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "organizer",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-11-26T14:00:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-11-26T16:00:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "",
+                "locationType": "default",
+                "uniqueIdType": "unknown",
+                "address": {},
+                "coordinates": {}
+            },
+            "locations": [],
+            "recurrence": null,
+            "attendees": [
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Decker, Andrew",
+                        "address": "Andrew.Decker@guggenheimpartners.com"
+                    }
+                }
+            ],
+            "organizer": {
+                "emailAddress": {
+                    "name": "Decker, Andrew",
+                    "address": "Andrew.Decker@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": null
+        },
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwACWBIVvQ==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAAB3u4COGxs_R4OBn-lkLLdfAAJVCivXAAA=",
+            "createdDateTime": "2025-11-21T22:19:04.732318Z",
+            "lastModifiedDateTime": "2025-11-28T14:55:23.7658588Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwACWBIVvQ==",
+            "categories": [],
+            "transactionId": null,
+            "originalStartTimeZone": "GMT Standard Time",
+            "originalEndTimeZone": "GMT Standard Time",
+            "iCalUId": "040000008200E00074C5B7101A82E00800000000AA6092D3345BDC0100000000000000001000000013FF5DD935F8724FAC41910756EAAF38",
+            "uid": "040000008200E00074C5B7101A82E00800000000AA6092D3345BDC0100000000000000001000000013FF5DD935F8724FAC41910756EAAF38",
+            "reminderMinutesBeforeStart": 15,
+            "isReminderOn": false,
+            "hasAttachments": false,
+            "subject": "GSEL Transaction Overview",
+            "bodyPreview": "________________________________________________________________________________\r\nMicrosoft Teams Need help?\r\nJoin the meeting now\r\nMeeting ID: 271 085 709 422 92\r\nPasscode: 7qH374t3\r\n________________________________\r\nDial in by phone\r\n+353 1 582 4280,,",
+            "importance": "normal",
+            "sensitivity": "normal",
+            "isAllDay": false,
+            "isCancelled": false,
+            "isOrganizer": false,
+            "responseRequested": true,
+            "seriesMasterId": null,
+            "showAs": "tentative",
+            "type": "singleInstance",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY%2BMsocAAAH8bVdAAB3u4COGxs%2BR4OBn%2FlkLLdfAAJVCivXAAA%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": null,
+            "isOnlineMeeting": true,
+            "onlineMeetingProvider": "teamsForBusiness",
+            "allowNewTimeProposals": true,
+            "occurrenceId": null,
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "notResponded",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-11-26T16:30:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-11-26T16:45:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "Microsoft Teams Meeting",
+                "locationType": "default",
+                "uniqueId": "Microsoft Teams Meeting",
+                "uniqueIdType": "private"
+            },
+            "locations": [
+                {
+                    "displayName": "Microsoft Teams Meeting",
+                    "locationType": "default",
+                    "uniqueId": "Microsoft Teams Meeting",
+                    "uniqueIdType": "private"
+                }
+            ],
+            "recurrence": null,
+            "attendees": [
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Stratos, Philip",
+                        "address": "Philip.Stratos@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Decker, Andrew",
+                        "address": "Andrew.Decker@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Dorsey, Tom",
+                        "address": "Thomas.Dorsey@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Feeney, Lynn",
+                        "address": "Lynn.Feeney@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Dolan, Owen",
+                        "address": "Owen.Dolan@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Bentley, Mark",
+                        "address": "Mark.Bentley@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "optional",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Charles, Marleena",
+                        "address": "Marleena.Charles@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "optional",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Lewis, Janel",
+                        "address": "Janel.Lewis@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "optional",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Kovalenko, Lucy",
+                        "address": "Lucy.Kovalenko@guggenheimpartners.com"
+                    }
+                }
+            ],
+            "organizer": {
+                "emailAddress": {
+                    "name": "Stratos, Philip",
+                    "address": "Philip.Stratos@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": {
+                "joinUrl": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2I5ZDQ3Y2ItMzg0Yi00OGE3LThmZjEtZjI3YTJmMGVmOTUw%40thread.v2/0?context=%7b%22Tid%22%3a%2253f3dc0a-512f-4399-817d-c4a55242d086%22%2c%22Oid%22%3a%224c9583a3-16c0-4411-9b7c-880aa63d716f%22%7d"
+            }
+        },
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwACWBIVww==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAAB3u4COGxs_R4OBn-lkLLdfAAJW6R-NAAA=",
+            "createdDateTime": "2025-11-24T18:08:37.3104434Z",
+            "lastModifiedDateTime": "2025-11-28T14:55:24.2519435Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwACWBIVww==",
+            "categories": [],
+            "transactionId": null,
+            "originalStartTimeZone": "Eastern Standard Time",
+            "originalEndTimeZone": "Eastern Standard Time",
+            "iCalUId": "040000008200E00074C5B7101A82E008000000000A2FBB556D5DDC01000000000000000010000000D161B42DD9CCCC478D4682D603420260",
+            "uid": "040000008200E00074C5B7101A82E008000000000A2FBB556D5DDC01000000000000000010000000D161B42DD9CCCC478D4682D603420260",
+            "reminderMinutesBeforeStart": 15,
+            "isReminderOn": false,
+            "hasAttachments": false,
+            "subject": "Advisory Vetting Committee: GIB-2025-Berlioz",
+            "bodyPreview": "Host: Nicole Canzoneri\r\n________________________________________________________________________________\r\nMicrosoft Teams Need help?\r\nJoin the meeting now\r\nMeeting ID: 275 897 675 024 18\r\nPasscode: gJ69e27c\r\n________________________________\r\nJoin on a vid",
+            "importance": "normal",
+            "sensitivity": "normal",
+            "isAllDay": false,
+            "isCancelled": false,
+            "isOrganizer": false,
+            "responseRequested": true,
+            "seriesMasterId": null,
+            "showAs": "tentative",
+            "type": "singleInstance",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY%2BMsocAAAH8bVdAAB3u4COGxs%2BR4OBn%2FlkLLdfAAJW6R%2FNAAA%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": null,
+            "isOnlineMeeting": true,
+            "onlineMeetingProvider": "teamsForBusiness",
+            "allowNewTimeProposals": true,
+            "occurrenceId": null,
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "notResponded",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-11-26T17:00:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-11-26T17:30:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "Microsoft Teams Meeting",
+                "locationType": "default",
+                "uniqueId": "Microsoft Teams Meeting",
+                "uniqueIdType": "private"
+            },
+            "locations": [
+                {
+                    "displayName": "Microsoft Teams Meeting",
+                    "locationType": "default",
+                    "uniqueId": "Microsoft Teams Meeting",
+                    "uniqueIdType": "private"
+                }
+            ],
+            "recurrence": null,
+            "attendees": [
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "GS IB Committees",
+                        "address": "GSIBCommittees@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Ahmann, Derek",
+                        "address": "Derek.Ahmann@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Bicknese, Robert (Vetting Committee Chair)",
+                        "address": "RBicknese@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Davies, Justine",
+                        "address": "Justine.Davies@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Decker, Andrew",
+                        "address": "Andrew.Decker@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Duerr, Alexander",
+                        "address": "Alexander.Duerr@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Epstein, Jared (Temporary Employee)",
+                        "address": "Jared.Epstein@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "GS Control Room",
+                        "address": "gscontrolroom@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "GS IB Business Control",
+                        "address": "GSIBBusinessControl@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "GS IB Compliance",
+                        "address": "GSIBCompliance@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "GS IB Legal",
+                        "address": "GSIBLegal@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Lajili, Haneen",
+                        "address": "Haneen.Lajili@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Rivera, JoAnn",
+                        "address": "JoAnn.Rivera@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Rutkoske, Eric",
+                        "address": "Eric.Rutkoske@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Bouten, PJ",
+                        "address": "PJBouten@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Evans, Charlie",
+                        "address": "Charlie.Evans@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Ramirez, Alexander",
+                        "address": "Alexander.Ramirez@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Bradford, Caroline",
+                        "address": "Caroline.Bradford@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Broun, Thomas",
+                        "address": "Thomas.Broun@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Cirilli, Owen",
+                        "address": "Owen.Cirilli@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Cohen, Kendall",
+                        "address": "Kendall.Cohen@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Evans, Will",
+                        "address": "Will.Evans@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Fefer, Sarah",
+                        "address": "Sarah.Fefer@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Hussain, Julia",
+                        "address": "Julia.Hussain@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Maney, AJ",
+                        "address": "Anthony.Maney@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "GS Advisory Vetting",
+                        "address": "GSAdvisoryVetting@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "optional",
+                    "status": {
+                        "response": "tentativelyAccepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Elrod, John",
+                        "address": "John.Elrod@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "optional",
+                    "status": {
+                        "response": "declined",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Leal, Sophie",
+                        "address": "Sophie.Leal@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Canzoneri, Nicole",
+                        "address": "Nicole.Canzoneri@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Stratos, Philip",
+                        "address": "Philip.Stratos@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Felice, Oliver",
+                        "address": "Oliver.Felice@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Feeney, Lynn",
+                        "address": "Lynn.Feeney@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Bentley, Mark",
+                        "address": "Mark.Bentley@guggenheimpartners.com"
+                    }
+                }
+            ],
+            "organizer": {
+                "emailAddress": {
+                    "name": "GS IB Committees",
+                    "address": "GSIBCommittees@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": {
+                "joinUrl": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NmNiNWExMjMtMzNiMC00YjllLWFhMmQtNDMxZDJlNjcwZmI0%40thread.v2/0?context=%7b%22Tid%22%3a%2253f3dc0a-512f-4399-817d-c4a55242d086%22%2c%22Oid%22%3a%22c424375b-8ad9-4e95-8834-13e58350fa39%22%7d"
+            }
+        },
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwACWBIVyQ==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAAB3u4COGxs_R4OBn-lkLLdfAAJW6R-PAAA=",
+            "createdDateTime": "2025-11-25T19:31:28.240329Z",
+            "lastModifiedDateTime": "2025-11-28T14:55:24.7900599Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwACWBIVyQ==",
+            "categories": [],
+            "transactionId": null,
+            "originalStartTimeZone": "Eastern Standard Time",
+            "originalEndTimeZone": "Eastern Standard Time",
+            "iCalUId": "040000008200E00074C5B7101A82E0080000000020E4F322175EDC010000000000000000100000008471FF90B5F65646A2FEDBDF08831155",
+            "uid": "040000008200E00074C5B7101A82E0080000000020E4F322175EDC010000000000000000100000008471FF90B5F65646A2FEDBDF08831155",
+            "reminderMinutesBeforeStart": 15,
+            "isReminderOn": false,
+            "hasAttachments": false,
+            "subject": "Project Delta: Ten Oaks Diligence Discussion",
+            "bodyPreview": "James Lee is inviting you to a scheduled Zoom meeting.\r\n\r\nJoin Zoom Meeting\r\nhttps://guggenheimpartners.zoom.us/j/88031644021\r\n\r\nMeeting ID: 880 3164 4021\r\nOne tap mobile\r\n+19292056099,,88031644021# US (New York)\r\n+16465189805,,88031644021# US (New York)",
+            "importance": "normal",
+            "sensitivity": "private",
+            "isAllDay": false,
+            "isCancelled": false,
+            "isOrganizer": false,
+            "responseRequested": true,
+            "seriesMasterId": null,
+            "showAs": "tentative",
+            "type": "singleInstance",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY%2BMsocAAAH8bVdAAB3u4COGxs%2BR4OBn%2FlkLLdfAAJW6R%2FPAAA%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": null,
+            "isOnlineMeeting": false,
+            "onlineMeetingProvider": "unknown",
+            "allowNewTimeProposals": true,
+            "occurrenceId": null,
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "notResponded",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-11-26T17:30:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-11-26T18:30:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "https://guggenheimpartners.zoom.us/j/88031644021",
+                "locationType": "default",
+                "uniqueId": "https://guggenheimpartners.zoom.us/j/88031644021",
+                "uniqueIdType": "private"
+            },
+            "locations": [
+                {
+                    "displayName": "https://guggenheimpartners.zoom.us/j/88031644021",
+                    "locationType": "default",
+                    "uniqueId": "https://guggenheimpartners.zoom.us/j/88031644021",
+                    "uniqueIdType": "private"
+                }
+            ],
+            "recurrence": null,
+            "attendees": [
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Lee, James (IB)",
+                        "address": "James.H.Lee@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Decker, Andrew",
+                        "address": "Andrew.Decker@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Dorsey, Tom",
+                        "address": "Thomas.Dorsey@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Hodge-Brokenburr, Chase",
+                        "address": "Chase.Hodge-Brokenburr@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Abraham, Michael",
+                        "address": "Michael.Abraham@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Schneider, Zac",
+                        "address": "Zac.Schneider@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Matan Haim",
+                        "address": "matan.haim@nano-di.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "John Brenton",
+                        "address": "john.brenton@markforged.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Steve Williamson",
+                        "address": "steve.williamson@nano-di.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "olivier.carnal@nano-di.com",
+                        "address": "olivier.carnal@nano-di.com"
+                    }
+                }
+            ],
+            "organizer": {
+                "emailAddress": {
+                    "name": "Lee, James (IB)",
+                    "address": "James.H.Lee@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": null
+        },
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwACWBIV0Q==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAAB3u4COGxs_R4OBn-lkLLdfAAJW6R-QAAA=",
+            "createdDateTime": "2025-11-25T19:31:29.3410194Z",
+            "lastModifiedDateTime": "2025-11-28T14:55:25.2766807Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwACWBIV0Q==",
+            "categories": [],
+            "transactionId": null,
+            "originalStartTimeZone": "Eastern Standard Time",
+            "originalEndTimeZone": "Eastern Standard Time",
+            "iCalUId": "040000008200E00074C5B7101A82E00800000000F0092B9C165EDC010000000000000000100000003B6515C850F8C647982C52AAFF9A7BAE",
+            "uid": "040000008200E00074C5B7101A82E00800000000F0092B9C165EDC010000000000000000100000003B6515C850F8C647982C52AAFF9A7BAE",
+            "reminderMinutesBeforeStart": 15,
+            "isReminderOn": false,
+            "hasAttachments": false,
+            "subject": "Project Delta: Ten Oaks Diligence Discussion",
+            "bodyPreview": "James Lee is inviting you to a scheduled Zoom meeting.\r\n\r\nJoin Zoom Meeting\r\nhttps://guggenheimpartners.zoom.us/j/88031644021\r\n\r\nMeeting ID: 880 3164 4021\r\nOne tap mobile\r\n+19292056099,,88031644021# US (New York)\r\n+16465189805,,88031644021# US (New York)",
+            "importance": "normal",
+            "sensitivity": "private",
+            "isAllDay": false,
+            "isCancelled": false,
+            "isOrganizer": false,
+            "responseRequested": true,
+            "seriesMasterId": null,
+            "showAs": "tentative",
+            "type": "singleInstance",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY%2BMsocAAAH8bVdAAB3u4COGxs%2BR4OBn%2FlkLLdfAAJW6R%2FQAAA%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": null,
+            "isOnlineMeeting": false,
+            "onlineMeetingProvider": "unknown",
+            "allowNewTimeProposals": true,
+            "occurrenceId": null,
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "notResponded",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-11-26T17:30:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-11-26T18:30:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "https://guggenheimpartners.zoom.us/j/88031644021",
+                "locationType": "default",
+                "uniqueId": "https://guggenheimpartners.zoom.us/j/88031644021",
+                "uniqueIdType": "private"
+            },
+            "locations": [
+                {
+                    "displayName": "https://guggenheimpartners.zoom.us/j/88031644021",
+                    "locationType": "default",
+                    "uniqueId": "https://guggenheimpartners.zoom.us/j/88031644021",
+                    "uniqueIdType": "private"
+                }
+            ],
+            "recurrence": null,
+            "attendees": [
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Lee, James (IB)",
+                        "address": "James.H.Lee@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Decker, Andrew",
+                        "address": "Andrew.Decker@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Dorsey, Tom",
+                        "address": "Thomas.Dorsey@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Hodge-Brokenburr, Chase",
+                        "address": "Chase.Hodge-Brokenburr@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Abraham, Michael",
+                        "address": "Michael.Abraham@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Schneider, Zac",
+                        "address": "Zac.Schneider@guggenheimpartners.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "accepted",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Matt Magan",
+                        "address": "matt@tenoaksgroup.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Kyle McCormick",
+                        "address": "kylem@tenoaksgroup.com"
+                    }
+                },
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Curtis Griner",
+                        "address": "curtis@tenoaksgroup.com"
+                    }
+                }
+            ],
+            "organizer": {
+                "emailAddress": {
+                    "name": "Lee, James (IB)",
+                    "address": "James.H.Lee@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": null
+        },
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwACac9SIg==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAAB3u4COGxs_R4OBn-lkLLdfAAI76H08AAA=",
+            "createdDateTime": "2025-10-29T21:51:12.2049292Z",
+            "lastModifiedDateTime": "2025-12-24T21:05:04.1805835Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwACac9SIg==",
+            "categories": [
+                "Nashville"
+            ],
+            "transactionId": null,
+            "originalStartTimeZone": "UTC",
+            "originalEndTimeZone": "UTC",
+            "iCalUId": "040000008200E00074C5B7101A82E00800000000302CCC25F448DC010000000000000000100000005B3ED566B1CC224DAAC2C4053C3B81C5",
+            "uid": "040000008200E00074C5B7101A82E00800000000302CCC25F448DC010000000000000000100000005B3ED566B1CC224DAAC2C4053C3B81C5",
+            "reminderMinutesBeforeStart": 1080,
+            "isReminderOn": false,
+            "hasAttachments": false,
+            "subject": "Nashville",
+            "bodyPreview": "",
+            "importance": "normal",
+            "sensitivity": "normal",
+            "isAllDay": true,
+            "isCancelled": false,
+            "isOrganizer": true,
+            "responseRequested": true,
+            "seriesMasterId": null,
+            "showAs": "free",
+            "type": "singleInstance",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY%2BMsocAAAH8bVdAAB3u4COGxs%2BR4OBn%2FlkLLdfAAI76H08AAA%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": null,
+            "isOnlineMeeting": false,
+            "onlineMeetingProvider": "unknown",
+            "allowNewTimeProposals": true,
+            "occurrenceId": null,
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "none",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-09-30T00:00:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-12-10T00:00:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "",
+                "locationType": "default",
+                "uniqueIdType": "unknown",
+                "address": {},
+                "coordinates": {}
+            },
+            "locations": [],
+            "recurrence": null,
+            "attendees": [
+                {
+                    "type": "required",
+                    "status": {
+                        "response": "none",
+                        "time": "0001-01-01T00:00:00Z"
+                    },
+                    "emailAddress": {
+                        "name": "Decker, Andrew",
+                        "address": "Andrew.Decker@guggenheimpartners.com"
+                    }
+                }
+            ],
+            "organizer": {
+                "emailAddress": {
+                    "name": "Decker, Andrew",
+                    "address": "Andrew.Decker@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": null
+        },
+        {
+            "@odata.etag": "W/\"d7uAjhsbPkeDgZ/5ZCy3XwADVEiiwA==\"",
+            "id": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwFRAAgI3ix_vhkAAEYAAAAAwKXOUeymr0iHBQU1EE86jQcAz9KeSCqDz0SXRe8WPjLKHAAAB-G1XQAAXm4wS2RLrke-cWx0kRVjYgABhqDMygAAEA==",
+            "createdDateTime": "2016-11-27T00:55:47.8972295Z",
+            "lastModifiedDateTime": "2026-02-10T17:48:14.5057064Z",
+            "changeKey": "d7uAjhsbPkeDgZ/5ZCy3XwADVEiiwA==",
+            "categories": [],
+            "transactionId": null,
+            "originalStartTimeZone": "UTC",
+            "originalEndTimeZone": "UTC",
+            "iCalUId": "040000008200E00074C5B7101A82E00807E90B1A7016ADFD4848D2010000000000000000100000001A775A3554BA0D469A143DD078E06AE1",
+            "uid": "040000008200E00074C5B7101A82E008000000007016ADFD4848D2010000000000000000100000001A775A3554BA0D469A143DD078E06AE1",
+            "reminderMinutesBeforeStart": 15,
+            "isReminderOn": true,
+            "hasAttachments": false,
+            "subject": "Michael Conti's Birthday",
+            "bodyPreview": "",
+            "importance": "normal",
+            "sensitivity": "normal",
+            "isAllDay": true,
+            "isCancelled": false,
+            "isOrganizer": true,
+            "responseRequested": true,
+            "seriesMasterId": "AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAABebjBLZEuuR79xbHSRFWNiAAGGoMzKAAA=",
+            "showAs": "free",
+            "type": "occurrence",
+            "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwFRAAgI3ix%2BvhkAAEYAAAAAwKXOUeymr0iHBQU1EE86jQcAz9KeSCqDz0SXRe8WPjLKHAAAB%2FG1XQAAXm4wS2RLrke%2FcWx0kRVjYgABhqDMygAAEA%3D%3D&exvsurl=1&path=/calendar/item",
+            "onlineMeetingUrl": null,
+            "isOnlineMeeting": false,
+            "onlineMeetingProvider": "unknown",
+            "allowNewTimeProposals": true,
+            "occurrenceId": "OID.AAMkADk0YjliMTViLThmY2QtNGNkMi04NGVkLWZiMGQyOWViMmYwMwBGAAAAAADApc5R7KavSIcFBTUQTzqNBwDP0p5IKoPPRJdF7xY_MsocAAAH8bVdAABebjBLZEuuR79xbHSRFWNiAAGGoMzKAAA=.2025-11-26",
+            "isDraft": false,
+            "hideAttendees": false,
+            "responseStatus": {
+                "response": "none",
+                "time": "0001-01-01T00:00:00Z"
+            },
+            "start": {
+                "dateTime": "2025-11-26T00:00:00",
+                "timeZone": "UTC"
+            },
+            "end": {
+                "dateTime": "2025-11-27T00:00:00",
+                "timeZone": "UTC"
+            },
+            "location": {
+                "displayName": "",
+                "locationType": "default",
+                "uniqueIdType": "unknown",
+                "address": {},
+                "coordinates": {}
+            },
+            "locations": [],
+            "recurrence": null,
+            "attendees": [],
+            "organizer": {
+                "emailAddress": {
+                    "name": "Decker, Andrew",
+                    "address": "Andrew.Decker@guggenheimpartners.com"
+                }
+            },
+            "onlineMeeting": null
+        }
+    ]
+}

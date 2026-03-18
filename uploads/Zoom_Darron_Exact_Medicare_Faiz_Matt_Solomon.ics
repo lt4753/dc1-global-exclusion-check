@@ -1,0 +1,115 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Eastern Standard Time
+BEGIN:STANDARD
+DTSTART:16011104T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010311T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN="Darron Hacker";RSVP=TRUE:mailto:dhacker@exactbenefitsgroup.com
+ATTENDEE;CN="Matthew Cornish";RSVP=TRUE:mailto:matthew.cornish@solomonpartn
+	ers.com
+CLASS:PUBLIC
+CREATED:20260116T164036Z
+DESCRIPTION:Faiz "Fez" Vahidy is inviting you to a scheduled Zoom meeting.\
+	n\nJoin Zoom Meeting\n\nhttps://solomonpartners.zoom.us/j/92319683672?pwd=
+	bt7Ly7SpbZAlXBqEc49fepyD1WGqxX.1\n\n \n\nView meeting insights with Zoom A
+	I Companion\n\nhttps://solomonpartners.zoom.us/launch/edl?muid=f440794d-02
+	d2-4859-9f7b-4f65a7531a7d\n\n \n\nMeeting ID: 923 1968 3672\n\nPasscode: 6
+	94812\n\n \n\n---\n\n \n\nOne tap mobile\n\n+16469313860\,\,92319683672#\,
+	\,\,\,*694812# US\n\n+19294362866\,\,92319683672#\,\,\,\,*694812# US (New 
+	York)\n\n \n\n---\n\n \n\nJoin by SIP\n\n• 92319683672@zoomcrc.com\n\nPa
+	sscode: 694812\n\n \n\nJoin instructions\n\nhttps://solomonpartners.zoom.u
+	s/meetings/92319683672/invitations?signature=Hld4aWQbVzEBala7_UkVPkZfwtnSl
+	xpMrDdN8pLYAyw\n\n \n\n \n\n
+DTEND;TZID="Eastern Standard Time":20251202T151500
+DTSTAMP:20251202T161314Z
+DTSTART;TZID="Eastern Standard Time":20251202T150000
+LAST-MODIFIED:20260116T164036Z
+LOCATION:https://solomonpartners.zoom.us/j/92319683672?pwd=bt7Ly7SpbZAlXBqE
+	c49fepyD1WGqxX.1
+ORGANIZER;CN="Faiz Vahidy":mailto:faiz.vahidy@solomonpartners.com
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=en-us:Zoom: Darron (Exact Medicare) <> Faiz & Matt (Solomo
+	n)
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000307D36597C63DC01000000000000000
+	010000000F510FCB542DE944FB516DAFB615694ED
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=Generato
+	r content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font Defin
+	itions */\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5
+	 4 6 3 2 4\;}\n@font-face\n	{font-family:Aptos\;}\n/* Style Definitions */
+	\np.MsoNormal\, li.MsoNormal\, div.MsoNormal\n	{margin:0in\;\n	font-size:1
+	2.0pt\;\n	font-family:"Aptos"\,sans-serif\;\n	mso-ligatures:standardcontex
+	tual\;}\nspan.EmailStyle17\n	{mso-style-type:personal-compose\;\n	font-fam
+	ily:"Aptos"\,sans-serif\;\n	color:windowtext\;}\n.MsoChpDefault\n	{mso-sty
+	le-type:export-only\;}\n@page WordSection1\n	{size:8.5in 11.0in\;\n	margin
+	:1.0in 1.0in 1.0in 1.0in\;}\ndiv.WordSection1\n	{page:WordSection1\;}\n-->
+	</style></head><body lang=EN-US link="#467886" vlink="#96607D" style='word
+	-wrap:break-word'><div class=WordSection1><p class=MsoNormal>F<a name="Win
+	ZmBookmark_z9FE93">aiz &quot\;Fez&quot\; Vahidy is inviting you to a sched
+	uled Zoom meeting.<o:p></o:p></a></p><p class=MsoNormal><span style='mso-b
+	ookmark:WinZmBookmark_z9FE93'>Join Zoom Meeting<o:p></o:p></span></p><p cl
+	ass=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9FE93'>https://solo
+	monpartners.zoom.us/j/92319683672?pwd=bt7Ly7SpbZAlXBqEc49fepyD1WGqxX.1<o:p
+	></o:p></span></p><p class=MsoNormal><span style='mso-bookmark:WinZmBookma
+	rk_z9FE93'><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span style='ms
+	o-bookmark:WinZmBookmark_z9FE93'>View meeting insights with Zoom AI Compan
+	ion<o:p></o:p></span></p><p class=MsoNormal><span style='mso-bookmark:WinZ
+	mBookmark_z9FE93'>https://solomonpartners.zoom.us/launch/edl?muid=f440794d
+	-02d2-4859-9f7b-4f65a7531a7d<o:p></o:p></span></p><p class=MsoNormal><span
+	 style='mso-bookmark:WinZmBookmark_z9FE93'><o:p>&nbsp\;</o:p></span></p><p
+	 class=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9FE93'>Meeting I
+	D: 923 1968 3672<o:p></o:p></span></p><p class=MsoNormal><span style='mso-
+	bookmark:WinZmBookmark_z9FE93'>Passcode: 694812<o:p></o:p></span></p><p cl
+	ass=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9FE93'><o:p>&nbsp\;
+	</o:p></span></p><p class=MsoNormal><span style='mso-bookmark:WinZmBookmar
+	k_z9FE93'>---<o:p></o:p></span></p><p class=MsoNormal><span style='mso-boo
+	kmark:WinZmBookmark_z9FE93'><o:p>&nbsp\;</o:p></span></p><p class=MsoNorma
+	l><span style='mso-bookmark:WinZmBookmark_z9FE93'>One tap mobile<o:p></o:p
+	></span></p><p class=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9F
+	E93'>+16469313860\,\,92319683672#\,\,\,\,*694812# US<o:p></o:p></span></p>
+	<p class=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9FE93'>+192943
+	62866\,\,92319683672#\,\,\,\,*694812# US (New York)<o:p></o:p></span></p><
+	p class=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9FE93'><o:p>&nb
+	sp\;</o:p></span></p><p class=MsoNormal><span style='mso-bookmark:WinZmBoo
+	kmark_z9FE93'>---<o:p></o:p></span></p><p class=MsoNormal><span style='mso
+	-bookmark:WinZmBookmark_z9FE93'><o:p>&nbsp\;</o:p></span></p><p class=MsoN
+	ormal><span style='mso-bookmark:WinZmBookmark_z9FE93'>Join by SIP<o:p></o:
+	p></span></p><p class=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9
+	FE93'>&#8226\; 92319683672@zoomcrc.com<o:p></o:p></span></p><p class=MsoNo
+	rmal><span style='mso-bookmark:WinZmBookmark_z9FE93'>Passcode: 694812<o:p>
+	</o:p></span></p><p class=MsoNormal><span style='mso-bookmark:WinZmBookmar
+	k_z9FE93'><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span style='mso
+	-bookmark:WinZmBookmark_z9FE93'>Join instructions<o:p></o:p></span></p><p 
+	class=MsoNormal><span style='mso-bookmark:WinZmBookmark_z9FE93'>https://so
+	lomonpartners.zoom.us/meetings/92319683672/invitations?signature=Hld4aWQbV
+	zEBala7_UkVPkZfwtnSlxpMrDdN8pLYAyw</span><a name=WinZmBookmarkEnd></a><o:p
+	></o:p></p><p class=MsoNormal><o:p>&nbsp\;</o:p></p><p class=MsoNormal><o:
+	p>&nbsp\;</o:p></p></div></body></html>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-APPTSEQTIME:20251202T161314Z
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-CONFTYPE:0
+X-MS-OLK-SENDER;CN="Sam Helm":mailto:sam.helm@solomonpartners.com
+END:VEVENT
+END:VCALENDAR

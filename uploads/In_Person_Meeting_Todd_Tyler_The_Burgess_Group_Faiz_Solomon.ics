@@ -1,0 +1,114 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Eastern Standard Time
+BEGIN:STANDARD
+DTSTART:16011104T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010311T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN="Todd Reid";RSVP=TRUE:mailto:treid@tbgroup.org
+ATTENDEE;CN=Emerald;CUTYPE=RESOURCE;ROLE=NON-PARTICIPANT;RSVP=TRUE:mailto:E
+	merald@solomonpartners.com
+ATTENDEE;CN="Tyler Reid";RSVP=TRUE:mailto:tyler@tbgroup.org
+CLASS:PUBLIC
+CREATED:20260116T164056Z
+DESCRIPTION:Our office is located at 1251 Avenue of the Americas\, 32nd Flo
+	or. New York\, NY 10020. \n\nYou will receive a barcode via email from “
+	1251 AoA Visitor Pass” – (make sure to double check your spam inbox) -
+	 which you can scan at the turnstile to access the 32nd floor. If you do n
+	ot receive the barcode\, please proceed to the security desk\, where they 
+	can print one for you to scan.\n\n \n\nBest\,\n\nSam\n\n \n\nSAM HELM\nEXE
+	CUTIVE ASSISTANT\n\n\nSOLOMON PARTNERS\n1251 AVENUE OF THE AMERICAS \nNEW 
+	YORK\, NEW YORK 10020\nT +1.212.508.1660 / 1660\nsam.helm@solomonpartners.
+	com <mailto:sam.helm@solomonpartners.com> \n\n \n\n \n\n
+DTEND;TZID="Eastern Standard Time":20251209T123000
+DTSTAMP:20251208T143738Z
+DTSTART;TZID="Eastern Standard Time":20251209T113000
+LAST-MODIFIED:20260116T164056Z
+LOCATION:Solomon Partners Office\, 1251 Avenue of Americas\, Floor 32\, New
+	 York\, NY 10020 || Conference Room:\; Emerald
+ORGANIZER;CN="Faiz Vahidy":mailto:faiz.vahidy@solomonpartners.com
+PRIORITY:5
+SEQUENCE:4
+SUMMARY;LANGUAGE=en-us:In Person Meeting: Todd & Tyler (The Burgess Group) 
+	<> Faiz (Solomon)
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000B0B86A65D365DC01000000000000000
+	0100000002110AB0AD1EF5C49ABC22E449B124B6C
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C1488
+	2" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http:
+	//www.w3.org/TR/REC-html40"><head><meta name=Generator content="Microsoft 
+	Word 15 (filtered medium)"><style><!--\n/* Font Definitions */\n@font-face
+	\n	{font-family:Helvetica\;\n	panose-1:2 11 6 4 2 2 2 2 2 4\;}\n@font-face
+	\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 4 6 3 2 4\;}\n@font-
+	face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2 2 4 3 2 4\;}\n@font-fa
+	ce\n	{font-family:Aptos\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoN
+	ormal\, div.MsoNormal\n	{margin:0in\;\n	font-size:12.0pt\;\n	font-family:"
+	Aptos"\,sans-serif\;\n	mso-ligatures:standardcontextual\;}\na:link\, span.
+	MsoHyperlink\n	{mso-style-priority:99\;\n	color:#467886\;\n	text-decoratio
+	n:underline\;}\nspan.EmailStyle18\n	{mso-style-type:personal-compose\;\n	f
+	ont-family:"Aptos"\,sans-serif\;\n	color:windowtext\;}\n.MsoChpDefault\n	{
+	mso-style-type:export-only\;\n	font-size:10.0pt\;\n	mso-ligatures:none\;}\
+	n@page WordSection1\n	{size:8.5in 11.0in\;\n	margin:1.0in 1.0in 1.0in 1.0i
+	n\;}\ndiv.WordSection1\n	{page:WordSection1\;}\n--></style></head><body la
+	ng=EN-US link="#467886" vlink="#96607D" style='word-wrap:break-word'><div 
+	class=WordSection1><p class=MsoNormal><i>Our office is located at 1251 Ave
+	nue of the Americas\, 32nd Floor. New York\, NY 10020. </i><o:p></o:p></p>
+	<p class=MsoNormal><i>You will receive a barcode via email from &#8220\;12
+	51 AoA Visitor Pass&#8221\; &#8211\; (make sure to double check your spam 
+	inbox) - which you can scan at the turnstile to access the 32nd floor. If 
+	you do not receive the barcode\, please proceed to the security desk\, whe
+	re they can print one for you to scan.</i><o:p></o:p></p><p class=MsoNorma
+	l><i>&nbsp\;</i><o:p></o:p></p><p class=MsoNormal><i>Best\,</i><o:p></o:p>
+	</p><p class=MsoNormal><i>Sam</i><o:p></o:p></p><p class=MsoNormal><o:p>&n
+	bsp\;</o:p></p><p class=MsoNormal style='line-height:12.75pt'><b><span sty
+	le='font-size:11.0pt\;font-family:"Helvetica"\,sans-serif\;color:#4F4CB1\;
+	mso-ligatures:none'>SAM HELM</span></b><b><span style='font-size:11.5pt\;f
+	ont-family:"Helvetica"\,sans-serif\;color:#4F4CB1\;mso-ligatures:none'><br
+	></span></b><span style='font-size:9.0pt\;font-family:"Helvetica"\,sans-se
+	rif\;color:#1F497D'>EXECUTIVE ASSISTANT</span><span style='font-size:13.5p
+	t\;font-family:"Calibri"\,sans-serif\;color:black\;mso-ligatures:none'><o:
+	p></o:p></span></p><p class=MsoNormal style='line-height:11.25pt'><b><span
+	 style='font-size:8.5pt\;font-family:"Helvetica"\,sans-serif\;color:black\
+	;mso-ligatures:none'><br></span></b><b><span style='font-size:8.5pt\;font-
+	family:"Helvetica"\,sans-serif\;color:#4F4CB1\;mso-ligatures:none'>SOLOMON
+	 PARTNERS</span></b><span style='font-size:8.5pt\;font-family:"Helvetica"\
+	,sans-serif\;color:#141B4D\;mso-ligatures:none'><br>1251 AVENUE OF THE AME
+	RICAS&nbsp\;<br>NEW YORK\, NEW YORK 10020<br></span><b><span style='font-s
+	ize:8.5pt\;font-family:"Helvetica"\,sans-serif\;color:#4F4CB1\;mso-ligatur
+	es:none'>T</span></b><span style='font-size:8.5pt\;font-family:"Helvetica"
+	\,sans-serif\;color:#141B4D\;mso-ligatures:none'>&nbsp\;+1.</span><span st
+	yle='font-size:8.5pt\;font-family:"Helvetica"\,sans-serif\;mso-ligatures:n
+	one'>212.508.1660 / 1660<span style='color:#141B4D'><br></span></span><u><
+	span style='font-size:8.0pt\;font-family:"Helvetica"\,sans-serif\;color:#9
+	54F72\;mso-ligatures:none'><a href="mailto:sam.helm@solomonpartners.com"><
+	span style='color:blue'>sam.helm@solomonpartners.com</span></a></span></u>
+	<span style='font-size:13.5pt\;font-family:"Calibri"\,sans-serif\;color:bl
+	ack\;mso-ligatures:none'><o:p></o:p></span></p><p class=MsoNormal><o:p>&nb
+	sp\;</o:p></p><p class=MsoNormal><o:p>&nbsp\;</o:p></p></div></body></html
+	>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-APPTLASTSEQUENCE:4
+X-MS-OLK-APPTSEQTIME:20251208T143738Z
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-CONFTYPE:0
+X-MS-OLK-SENDER;CN="Sam Helm":mailto:sam.helm@solomonpartners.com
+END:VEVENT
+END:VCALENDAR
